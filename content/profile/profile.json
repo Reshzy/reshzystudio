@@ -2,17 +2,141 @@
   "name": "Rodge Andru P. Viloria",
   "shortBio": "Artist and designer working across digital illustration, graphic design, and poster composition.",
   "fullBiography": "Rodge Andru builds visual work with an editorial sensibility — fewer pieces, clearer intention, and careful presentation. The studio treats every image as an exhibition object: proportioned, paced, and left with room to breathe.",
+  "introduction": "The work comes first. The person behind it stays present but quiet — offering context without turning the exhibition into a résumé.",
+  "philosophy": "Images should hold attention without noise. Composition leads; decoration follows only when it earns its place. Each piece is paced like a room in a gallery: clear entry, intentional pause, and space to leave.",
+  "location": "Philippines",
   "skills": [
-    "Digital Illustration",
-    "Graphic Design",
-    "Poster Design",
-    "Anime"
+    {
+      "id": "digital-illustration",
+      "label": "Digital Illustration",
+      "description": "Narrative images built for mood, character, and quiet detail."
+    },
+    {
+      "id": "graphic-design",
+      "label": "Graphic Design",
+      "description": "Visual systems where type, space, and hierarchy do the work."
+    },
+    {
+      "id": "poster-design",
+      "label": "Poster Design",
+      "description": "Single-frame compositions meant to hold attention from a distance."
+    },
+    {
+      "id": "anime",
+      "label": "Anime",
+      "description": "Stylized figure work informed by pacing, gesture, and line."
+    }
   ],
   "tools": [
     "Adobe Photoshop",
     "Adobe Illustrator",
     "Procreate",
     "Figma"
+  ],
+  "timeline": [
+    {
+      "id": "foundation",
+      "year": "2018",
+      "title": "Foundations",
+      "description": "Began formal study in visual communication, grounding daily practice in drawing, composition, and typography."
+    },
+    {
+      "id": "practice",
+      "year": "2021",
+      "title": "Independent practice",
+      "description": "Shifted from assignment-driven work to a curated body of illustration and poster studies."
+    },
+    {
+      "id": "studio",
+      "year": "2024",
+      "title": "Studio focus",
+      "description": "Refined the exhibition approach — fewer pieces, clearer intention, and careful presentation."
+    },
+    {
+      "id": "exhibition",
+      "year": "2026",
+      "title": "Public exhibition",
+      "description": "Opened this site as a living archive of selected creative work."
+    }
+  ],
+  "education": [
+    {
+      "id": "visual-communication",
+      "institution": "Visual Communication Studies",
+      "credential": "Bachelor of Arts",
+      "period": "2018 — 2022",
+      "description": "Emphasis on composition, typography, and image-making for print and screen."
+    }
+  ],
+  "experience": [
+    {
+      "id": "independent-studio",
+      "role": "Independent Artist & Designer",
+      "organization": "Reshz Studio",
+      "period": "2021 — Present",
+      "summary": "Produces digital illustration, graphic design, and poster work with an editorial, exhibition-first approach."
+    }
+  ],
+  "values": [
+    {
+      "id": "restraint",
+      "title": "Restraint",
+      "description": "Clarity over volume. Every element must justify its presence."
+    },
+    {
+      "id": "craft",
+      "title": "Craft",
+      "description": "Proportion, pacing, and finish matter as much as the idea."
+    },
+    {
+      "id": "intention",
+      "title": "Intention",
+      "description": "Work should feel considered — never decorative for its own sake."
+    },
+    {
+      "id": "respect",
+      "title": "Respect",
+      "description": "For the image, the viewer, and the time both share."
+    }
+  ],
+  "funFacts": [
+    {
+      "id": "drawing",
+      "label": "Drawing",
+      "detail": "Sketchbooks remain the quietest part of the practice."
+    },
+    {
+      "id": "music",
+      "label": "Music",
+      "detail": "Long work sessions usually begin with the same short playlist."
+    },
+    {
+      "id": "coffee",
+      "label": "Coffee",
+      "detail": "Preferred ritual before any serious composition pass."
+    },
+    {
+      "id": "books",
+      "label": "Books",
+      "detail": "Editorial layouts and museum catalogues are frequent references."
+    }
+  ],
+  "highlights": [
+    {
+      "id": "disciplines",
+      "value": "4",
+      "label": "Disciplines in practice"
+    },
+    {
+      "id": "focus",
+      "value": "1",
+      "label": "Curated exhibition focus"
+    },
+    {
+      "id": "tools",
+      "value": "4",
+      "label": "Primary tools"
+    }
   ],
   "socialLinks": [],
   "email": "hello@reshzystudio.com",

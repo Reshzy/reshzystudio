@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "headline": "The person behind the work",
+    "supporting": "A quiet introduction — perspective first, credentials second."
+  },
+  "introduction": {
+    "headline": "Introduction",
+    "supporting": "Meet the studio behind the exhibition."
+  },
+  "story": {
+    "headline": "Perspective",
+    "supporting": "Why the work looks the way it does."
+  },
+  "timeline": {
+    "headline": "Journey",
+    "supporting": "Milestones that shaped the practice."
+  },
+  "education": {
+    "headline": "Education",
+    "supporting": "Where formal study met daily craft."
+  },
+  "experience": {
+    "headline": "Practice",
+    "supporting": "How the work is made day to day."
+  },
+  "skills": {
+    "headline": "Disciplines",
+    "supporting": "The areas that define the archive."
+  },
+  "technologies": {
+    "headline": "Tools",
+    "supporting": "Software used in the studio — shown plainly, without skill bars."
+  },
+  "values": {
+    "headline": "Values",
+    "supporting": "Principles that guide every piece."
+  },
+  "funFacts": {
+    "headline": "Notes",
+    "supporting": "Small details that stay outside the résumé."
+  },
+  "highlights": {
+    "headline": "At a glance",
+    "supporting": "A short measure of the current focus."
+  },
+  "cta": {
+    "headline": "Start a conversation",
+    "body": "For commissions, collaboration, or a quiet note about the work — write when you are ready.",
+    "cta": {
+      "label": "Start a Conversation",
+      "href": "/contact"
+    }
+  }
+}

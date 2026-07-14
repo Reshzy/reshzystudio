@@ -87,19 +87,87 @@ export interface SocialLink {
   label: string;
 }
 
+export interface TimelineEntry {
+  id: string;
+  year: string;
+  title: string;
+  description: string;
+}
+
+export interface EducationEntry {
+  id: string;
+  institution: string;
+  credential: string;
+  period: string;
+  description?: string;
+}
+
+export interface ExperienceEntry {
+  id: string;
+  role: string;
+  organization: string;
+  period: string;
+  summary: string;
+}
+
+export interface SkillEntry {
+  id: string;
+  label: string;
+  description: string;
+}
+
+export interface ValueEntry {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface FunFactEntry {
+  id: string;
+  label: string;
+  detail: string;
+}
+
+export interface ProfileStat {
+  id: string;
+  value: string;
+  label: string;
+}
+
 export interface Profile {
   name: string;
   shortBio: string;
   fullBiography?: string;
+  introduction?: string;
+  philosophy?: string;
   location?: string;
-  skills: string[];
+  skills: SkillEntry[];
   tools: string[];
-  education?: string[];
-  experience?: string[];
+  timeline?: TimelineEntry[];
+  education?: EducationEntry[];
+  experience?: ExperienceEntry[];
+  values?: ValueEntry[];
+  funFacts?: FunFactEntry[];
+  highlights?: ProfileStat[];
   socialLinks: SocialLink[];
   email?: string;
   profileImage?: string;
   currentFocus?: string;
+}
+
+export interface AboutPageContent {
+  hero: HomeSectionContent;
+  introduction: HomeSectionContent;
+  story: HomeSectionContent;
+  timeline: HomeSectionContent;
+  education: HomeSectionContent;
+  experience: HomeSectionContent;
+  skills: HomeSectionContent;
+  technologies: HomeSectionContent;
+  values: HomeSectionContent;
+  funFacts: HomeSectionContent;
+  highlights: HomeSectionContent;
+  cta: HomeSectionContent;
 }
 
 export interface NavigationItem {

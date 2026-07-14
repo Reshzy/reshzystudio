@@ -1,5 +1,6 @@
 export { loadSiteConfiguration } from "./load-site-config";
 export { loadHomeContent } from "./load-home";
+export { loadAboutContent } from "./load-about";
 export { loadProfile } from "./load-profile";
 export {
   loadAllArtwork,
