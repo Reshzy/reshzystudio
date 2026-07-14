@@ -13,6 +13,9 @@ export type { ButtonProps, ButtonVariant } from "./button/button";
 export { Input } from "./input/input";
 export type { InputProps } from "./input/input";
 
+export { Textarea } from "./input/textarea";
+export type { TextareaProps } from "./input/textarea";
+
 export { Card } from "./card/card";
 export type { CardProps, CardVariant } from "./card/card";
 

@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "headline": "Start a conversation",
+    "supporting": "A quiet place to write — commissions, collaboration, or a note about the work."
+  },
+  "introduction": {
+    "headline": "Write when you are ready",
+    "supporting": "No pressure. Clear intent is enough.",
+    "body": "Share what brought you here. I read every message and reply when I can give it proper attention."
+  },
+  "methods": {
+    "headline": "Ways to reach out",
+    "supporting": "Choose the path that feels natural."
+  },
+  "methodsItems": [
+    {
+      "id": "email",
+      "label": "Email",
+      "description": "Direct and lasting — best for commissions and detailed notes."
+    },
+    {
+      "id": "form",
+      "label": "Message",
+      "description": "Write here with your name, email, and a short note."
+    }
+  ],
+  "form": {
+    "headline": "Send a message",
+    "supporting": "Name, email, and message — nothing more.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submitLabel": "Send Message",
+    "submittingLabel": "Sending…",
+    "successTitle": "Thank you for writing",
+    "successBody": "Your note was received. I will reply when I can give it proper attention.",
+    "errorTitle": "Something went wrong",
+    "errorBody": "The message could not be sent. Please try again, or write directly by email."
+  },
+  "social": {
+    "headline": "Elsewhere",
+    "supporting": "Other places the work appears."
+  }
+}

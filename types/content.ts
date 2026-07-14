@@ -97,6 +97,36 @@ export interface ArtworkPageContent {
   cta: HomeSectionContent;
 }
 
+export interface ContactMethodContent {
+  id: string;
+  label: string;
+  description: string;
+  href?: string;
+}
+
+export interface ContactFormContent {
+  headline: string;
+  supporting?: string;
+  nameLabel: string;
+  emailLabel: string;
+  messageLabel: string;
+  submitLabel: string;
+  submittingLabel: string;
+  successTitle: string;
+  successBody: string;
+  errorTitle: string;
+  errorBody: string;
+}
+
+export interface ContactPageContent {
+  hero: HomeSectionContent;
+  introduction: HomeSectionContent;
+  methods: HomeSectionContent;
+  form: ContactFormContent;
+  social: HomeSectionContent;
+  methodsItems: ContactMethodContent[];
+}
+
 export interface Collection extends ContentIdentity {
   description: string;
   coverImage?: string;

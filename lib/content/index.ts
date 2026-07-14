@@ -3,6 +3,7 @@ export { loadHomeContent } from "./load-home";
 export { loadAboutContent } from "./load-about";
 export { loadCollectionContent } from "./load-collection-content";
 export { loadArtworkContent } from "./load-artwork-content";
+export { loadContactContent } from "./load-contact";
 export { loadProfile } from "./load-profile";
 export {
   loadAllArtwork,

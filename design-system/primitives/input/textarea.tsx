@@ -1,23 +1,26 @@
-import type { InputHTMLAttributes, Ref } from "react";
+import type { Ref, TextareaHTMLAttributes } from "react";
 import { cn } from "@/design-system/shared";
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface TextareaProps
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   invalid?: boolean;
-  ref?: Ref<HTMLInputElement>;
+  ref?: Ref<HTMLTextAreaElement>;
 }
 
-export function Input({
+export function Textarea({
   invalid = false,
   className,
   ref,
+  rows = 6,
   ...props
-}: InputProps) {
+}: TextareaProps) {
   return (
-    <input
+    <textarea
       ref={ref}
+      rows={rows}
       aria-invalid={invalid || undefined}
       className={cn(
-        "w-full rounded-md border bg-input-background px-4 py-3 text-body text-input-foreground",
+        "w-full resize-y rounded-md border bg-input-background px-4 py-3 text-body text-input-foreground",
         "placeholder:text-input-placeholder",
         "transition-colors duration-small ease-standard",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
