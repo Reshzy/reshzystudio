@@ -1,0 +1,19 @@
+/**
+ * Layout primitives — container widths, grid system, breakpoints.
+ */
+:root {
+  --primitive-container-max: 80rem;
+  --primitive-container-padding-sm: var(--primitive-space-4);
+  --primitive-container-padding-md: var(--primitive-space-6);
+  --primitive-container-padding-lg: var(--primitive-space-8);
+
+  --primitive-grid-columns: 12;
+  --primitive-grid-gutter-sm: var(--primitive-space-4);
+  --primitive-grid-gutter-md: var(--primitive-space-6);
+  --primitive-grid-gutter-lg: var(--primitive-space-8);
+
+  --primitive-breakpoint-sm: 40rem;
+  --primitive-breakpoint-md: 48rem;
+  --primitive-breakpoint-lg: 64rem;
+  --primitive-breakpoint-xl: 80rem;
+}

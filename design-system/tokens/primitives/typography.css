@@ -1,0 +1,43 @@
+/**
+ * Typography scale primitives. Editorial museum hierarchy.
+ */
+:root {
+  /* Display */
+  --primitive-text-display-size: 3.5rem;
+  --primitive-text-display-line-height: 1.05;
+  --primitive-text-display-weight: 600;
+  --primitive-text-display-tracking: -0.02em;
+
+  /* Heading */
+  --primitive-text-heading-size: 2.25rem;
+  --primitive-text-heading-line-height: 1.15;
+  --primitive-text-heading-weight: 600;
+  --primitive-text-heading-tracking: -0.015em;
+
+  /* Subheading */
+  --primitive-text-subheading-size: 1.5rem;
+  --primitive-text-subheading-line-height: 1.25;
+  --primitive-text-subheading-weight: 500;
+  --primitive-text-subheading-tracking: -0.01em;
+
+  /* Body */
+  --primitive-text-body-size: 1.0625rem;
+  --primitive-text-body-line-height: 1.65;
+  --primitive-text-body-weight: 400;
+  --primitive-text-body-tracking: 0;
+
+  /* Caption */
+  --primitive-text-caption-size: 0.875rem;
+  --primitive-text-caption-line-height: 1.5;
+  --primitive-text-caption-weight: 400;
+  --primitive-text-caption-tracking: 0.01em;
+
+  /* Metadata */
+  --primitive-text-metadata-size: 0.75rem;
+  --primitive-text-metadata-line-height: 1.4;
+  --primitive-text-metadata-weight: 500;
+  --primitive-text-metadata-tracking: 0.04em;
+
+  /* Reading width */
+  --primitive-prose-max-width: 42rem;
+}

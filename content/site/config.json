@@ -1,0 +1,19 @@
+{
+  "identity": {
+    "siteName": "Rodge Andru",
+    "tagline": "Selected creative work",
+    "owner": "Rodge Andru P. Viloria"
+  },
+  "seo": {
+    "defaultTitle": "Rodge Andru",
+    "titleTemplate": "%s · Rodge Andru",
+    "defaultDescription": "A curated exhibition of digital illustration, graphic design, and creative work by Rodge Andru P. Viloria.",
+    "locale": "en",
+    "siteUrl": "https://reshzystudio.com"
+  },
+  "social": {
+    "ogImage": "/og-default.jpg"
+  },
+  "navigation": [],
+  "featureFlags": {}
+}

@@ -1,0 +1,38 @@
+/**
+ * Dark theme semantic tokens.
+ */
+[data-theme="dark"] {
+  --semantic-canvas: var(--primitive-neutral-950);
+  --semantic-surface-primary: var(--primitive-neutral-900);
+  --semantic-surface-secondary: var(--primitive-neutral-800);
+  --semantic-text-primary: var(--primitive-neutral-50);
+  --semantic-text-secondary: var(--primitive-neutral-400);
+  --semantic-text-muted: var(--primitive-neutral-500);
+  --semantic-accent-primary: var(--primitive-accent-400);
+  --semantic-accent-primary-hover: var(--primitive-accent-500);
+  --semantic-border-default: var(--primitive-neutral-700);
+  --semantic-border-subtle: var(--primitive-neutral-800);
+  --semantic-state-success: var(--primitive-success-500);
+  --semantic-state-warning: var(--primitive-warning-500);
+  --semantic-state-error: var(--primitive-error-500);
+  --semantic-focus-ring: var(--primitive-accent-400);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --semantic-canvas: var(--primitive-neutral-950);
+    --semantic-surface-primary: var(--primitive-neutral-900);
+    --semantic-surface-secondary: var(--primitive-neutral-800);
+    --semantic-text-primary: var(--primitive-neutral-50);
+    --semantic-text-secondary: var(--primitive-neutral-400);
+    --semantic-text-muted: var(--primitive-neutral-500);
+    --semantic-accent-primary: var(--primitive-accent-400);
+    --semantic-accent-primary-hover: var(--primitive-accent-500);
+    --semantic-border-default: var(--primitive-neutral-700);
+    --semantic-border-subtle: var(--primitive-neutral-800);
+    --semantic-state-success: var(--primitive-success-500);
+    --semantic-state-warning: var(--primitive-warning-500);
+    --semantic-state-error: var(--primitive-error-500);
+    --semantic-focus-ring: var(--primitive-accent-400);
+  }
+}

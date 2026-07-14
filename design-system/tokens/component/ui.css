@@ -1,0 +1,73 @@
+/**
+ * Component tokens specialize semantic tokens for reusable UI patterns.
+ */
+:root {
+  /* Button */
+  --component-button-primary-background: var(--semantic-accent-primary);
+  --component-button-primary-background-hover: var(--semantic-accent-primary-hover);
+  --component-button-primary-foreground: var(--primitive-neutral-0);
+
+  --component-button-secondary-background: transparent;
+  --component-button-secondary-foreground: var(--semantic-text-primary);
+  --component-button-secondary-border: var(--semantic-border-default);
+  --component-button-secondary-hover: var(--semantic-surface-secondary);
+
+  --component-button-ghost-background: transparent;
+  --component-button-ghost-foreground: var(--semantic-text-primary);
+  --component-button-ghost-hover: var(--semantic-surface-secondary);
+
+  /* Input */
+  --component-input-background: var(--semantic-surface-primary);
+  --component-input-border: var(--semantic-border-default);
+  --component-input-border-focus: var(--semantic-accent-primary);
+  --component-input-border-error: var(--semantic-state-error);
+  --component-input-foreground: var(--semantic-text-primary);
+  --component-input-placeholder: var(--semantic-text-muted);
+
+  /* Card */
+  --component-card-standard-background: var(--semantic-surface-primary);
+  --component-card-standard-border: var(--semantic-border-default);
+  --component-card-featured-background: var(--semantic-surface-primary);
+  --component-card-featured-border: var(--semantic-accent-primary);
+  --component-card-compact-background: var(--semantic-surface-primary);
+  --component-card-compact-border: var(--semantic-border-subtle);
+
+  /* Badge */
+  --component-badge-default-background: var(--semantic-surface-secondary);
+  --component-badge-default-foreground: var(--semantic-text-secondary);
+  --component-badge-accent-background: var(--semantic-accent-primary);
+  --component-badge-accent-foreground: var(--primitive-neutral-0);
+  --component-badge-success-background: var(--semantic-state-success);
+  --component-badge-success-foreground: var(--primitive-neutral-0);
+  --component-badge-warning-background: var(--semantic-state-warning);
+  --component-badge-warning-foreground: var(--primitive-neutral-950);
+  --component-badge-error-background: var(--semantic-state-error);
+  --component-badge-error-foreground: var(--primitive-neutral-0);
+
+  /* Link */
+  --component-link-default: var(--semantic-text-primary);
+  --component-link-subtle: var(--semantic-text-secondary);
+  --component-link-accent: var(--semantic-accent-primary);
+  --component-link-hover: var(--semantic-accent-primary-hover);
+
+  /* Navigation & gallery */
+  --component-navigation-background: var(--semantic-surface-primary);
+  --component-navigation-foreground: var(--semantic-text-primary);
+  --component-gallery-frame: var(--semantic-border-subtle);
+
+  /* Focus */
+  --component-focus-ring-color: var(--semantic-focus-ring);
+  --component-focus-ring-offset: var(--primitive-space-1);
+}
+
+[data-theme="dark"] {
+  --component-button-primary-foreground: var(--primitive-neutral-950);
+  --component-badge-accent-foreground: var(--primitive-neutral-950);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --component-button-primary-foreground: var(--primitive-neutral-950);
+    --component-badge-accent-foreground: var(--primitive-neutral-950);
+  }
+}

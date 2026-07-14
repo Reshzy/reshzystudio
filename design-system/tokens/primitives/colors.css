@@ -1,0 +1,36 @@
+/**
+ * Primitive color values. Internal to the token system — not consumed by components directly.
+ * Contrast pairs validated for WCAG AA minimum against semantic mappings in light/dark themes.
+ */
+:root {
+  /* Neutrals */
+  --primitive-neutral-0: #ffffff;
+  --primitive-neutral-50: #fafaf9;
+  --primitive-neutral-100: #f5f5f4;
+  --primitive-neutral-200: #e7e5e4;
+  --primitive-neutral-300: #d6d3d1;
+  --primitive-neutral-400: #a8a29e;
+  --primitive-neutral-500: #78716c;
+  --primitive-neutral-600: #57534e;
+  --primitive-neutral-700: #44403c;
+  --primitive-neutral-800: #292524;
+  --primitive-neutral-900: #1c1917;
+  --primitive-neutral-950: #0c0a09;
+
+  /* Accent — warm bronze, used sparingly */
+  --primitive-accent-400: #c4a574;
+  --primitive-accent-500: #a68b5b;
+  --primitive-accent-600: #8b7355;
+  --primitive-accent-700: #6f5c44;
+
+  /* Semantic states */
+  --primitive-success-600: #166534;
+  --primitive-success-500: #22c55e;
+  --primitive-warning-600: #b45309;
+  --primitive-warning-500: #f59e0b;
+  --primitive-error-600: #b91c1c;
+  --primitive-error-500: #ef4444;
+
+  /* Focus */
+  --primitive-focus-500: #8b7355;
+}

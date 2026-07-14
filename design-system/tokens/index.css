@@ -1,0 +1,13 @@
+/**
+ * Design token entry point. Primitive → Semantic → Component hierarchy.
+ */
+@import "./primitives/colors.css";
+@import "./primitives/spacing.css";
+@import "./primitives/typography.css";
+@import "./primitives/radii.css";
+@import "./primitives/shadows.css";
+@import "./primitives/motion.css";
+@import "./primitives/layout.css";
+@import "./semantic/light.css";
+@import "./semantic/dark.css";
+@import "./component/ui.css";

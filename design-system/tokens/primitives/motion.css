@@ -1,0 +1,14 @@
+/**
+ * Motion timing primitives. Consumed by animation presets (P1).
+ */
+:root {
+  --primitive-duration-micro: 150ms;
+  --primitive-duration-small: 275ms;
+  --primitive-duration-medium: 425ms;
+  --primitive-duration-large: 650ms;
+  --primitive-duration-hero: 1000ms;
+
+  --primitive-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --primitive-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --primitive-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+}

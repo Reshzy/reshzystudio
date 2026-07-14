@@ -1,0 +1,6 @@
+:root {
+  --primitive-radius-sm: 0.25rem;
+  --primitive-radius-md: 0.5rem;
+  --primitive-radius-lg: 0.75rem;
+  --primitive-radius-full: 9999px;
+}

@@ -1,0 +1,20 @@
+/**
+ * Light theme semantic tokens.
+ */
+:root,
+[data-theme="light"] {
+  --semantic-canvas: var(--primitive-neutral-50);
+  --semantic-surface-primary: var(--primitive-neutral-0);
+  --semantic-surface-secondary: var(--primitive-neutral-100);
+  --semantic-text-primary: var(--primitive-neutral-900);
+  --semantic-text-secondary: var(--primitive-neutral-600);
+  --semantic-text-muted: var(--primitive-neutral-500);
+  --semantic-accent-primary: var(--primitive-accent-600);
+  --semantic-accent-primary-hover: var(--primitive-accent-700);
+  --semantic-border-default: var(--primitive-neutral-200);
+  --semantic-border-subtle: var(--primitive-neutral-100);
+  --semantic-state-success: var(--primitive-success-600);
+  --semantic-state-warning: var(--primitive-warning-600);
+  --semantic-state-error: var(--primitive-error-600);
+  --semantic-focus-ring: var(--primitive-focus-500);
+}

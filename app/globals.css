@@ -1,26 +1,175 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "../design-system/tokens/index.css";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Semantic colors */
+  --color-canvas: var(--semantic-canvas);
+  --color-surface-primary: var(--semantic-surface-primary);
+  --color-surface-secondary: var(--semantic-surface-secondary);
+  --color-text-primary: var(--semantic-text-primary);
+  --color-text-secondary: var(--semantic-text-secondary);
+  --color-text-muted: var(--semantic-text-muted);
+  --color-accent-primary: var(--semantic-accent-primary);
+  --color-accent-primary-hover: var(--semantic-accent-primary-hover);
+  --color-border-default: var(--semantic-border-default);
+  --color-border-subtle: var(--semantic-border-subtle);
+  --color-state-success: var(--semantic-state-success);
+  --color-state-warning: var(--semantic-state-warning);
+  --color-state-error: var(--semantic-state-error);
+  --color-focus-ring: var(--semantic-focus-ring);
+
+  /* Component colors */
+  --color-button-primary: var(--component-button-primary-background);
+  --color-button-primary-hover: var(--component-button-primary-background-hover);
+  --color-button-primary-foreground: var(--component-button-primary-foreground);
+  --color-button-secondary: var(--component-button-secondary-background);
+  --color-button-secondary-foreground: var(--component-button-secondary-foreground);
+  --color-button-secondary-border: var(--component-button-secondary-border);
+  --color-button-secondary-hover: var(--component-button-secondary-hover);
+  --color-button-ghost: var(--component-button-ghost-background);
+  --color-button-ghost-foreground: var(--component-button-ghost-foreground);
+  --color-button-ghost-hover: var(--component-button-ghost-hover);
+
+  --color-input-background: var(--component-input-background);
+  --color-input-border: var(--component-input-border);
+  --color-input-border-focus: var(--component-input-border-focus);
+  --color-input-border-error: var(--component-input-border-error);
+  --color-input-foreground: var(--component-input-foreground);
+  --color-input-placeholder: var(--component-input-placeholder);
+
+  --color-card-standard: var(--component-card-standard-background);
+  --color-card-standard-border: var(--component-card-standard-border);
+  --color-card-featured: var(--component-card-featured-background);
+  --color-card-featured-border: var(--component-card-featured-border);
+  --color-card-compact: var(--component-card-compact-background);
+  --color-card-compact-border: var(--component-card-compact-border);
+
+  --color-badge-default: var(--component-badge-default-background);
+  --color-badge-default-foreground: var(--component-badge-default-foreground);
+  --color-badge-accent: var(--component-badge-accent-background);
+  --color-badge-accent-foreground: var(--component-badge-accent-foreground);
+  --color-badge-success: var(--component-badge-success-background);
+  --color-badge-success-foreground: var(--component-badge-success-foreground);
+  --color-badge-warning: var(--component-badge-warning-background);
+  --color-badge-warning-foreground: var(--component-badge-warning-foreground);
+  --color-badge-error: var(--component-badge-error-background);
+  --color-badge-error-foreground: var(--component-badge-error-foreground);
+
+  --color-link-default: var(--component-link-default);
+  --color-link-subtle: var(--component-link-subtle);
+  --color-link-accent: var(--component-link-accent);
+  --color-link-hover: var(--component-link-hover);
+
+  --color-navigation-background: var(--component-navigation-background);
+  --color-navigation-foreground: var(--component-navigation-foreground);
+  --color-gallery-frame: var(--component-gallery-frame);
+
+  /* Typography families */
+  --font-display: var(--font-display-family), "Cormorant", Georgia, serif;
+  --font-sans: var(--font-body-family), "Source Sans 3", system-ui, sans-serif;
+
+  /* Typography scale */
+  --text-display: var(--primitive-text-display-size);
+  --text-display--line-height: var(--primitive-text-display-line-height);
+  --text-display--font-weight: var(--primitive-text-display-weight);
+  --text-display--letter-spacing: var(--primitive-text-display-tracking);
+
+  --text-heading: var(--primitive-text-heading-size);
+  --text-heading--line-height: var(--primitive-text-heading-line-height);
+  --text-heading--font-weight: var(--primitive-text-heading-weight);
+  --text-heading--letter-spacing: var(--primitive-text-heading-tracking);
+
+  --text-subheading: var(--primitive-text-subheading-size);
+  --text-subheading--line-height: var(--primitive-text-subheading-line-height);
+  --text-subheading--font-weight: var(--primitive-text-subheading-weight);
+  --text-subheading--letter-spacing: var(--primitive-text-subheading-tracking);
+
+  --text-body: var(--primitive-text-body-size);
+  --text-body--line-height: var(--primitive-text-body-line-height);
+  --text-body--font-weight: var(--primitive-text-body-weight);
+  --text-body--letter-spacing: var(--primitive-text-body-tracking);
+
+  --text-caption: var(--primitive-text-caption-size);
+  --text-caption--line-height: var(--primitive-text-caption-line-height);
+  --text-caption--font-weight: var(--primitive-text-caption-weight);
+  --text-caption--letter-spacing: var(--primitive-text-caption-tracking);
+
+  --text-metadata: var(--primitive-text-metadata-size);
+  --text-metadata--line-height: var(--primitive-text-metadata-line-height);
+  --text-metadata--font-weight: var(--primitive-text-metadata-weight);
+  --text-metadata--letter-spacing: var(--primitive-text-metadata-tracking);
+
+  /* Spacing — 8-point system */
+  --spacing-1: var(--primitive-space-1);
+  --spacing-2: var(--primitive-space-2);
+  --spacing-4: var(--primitive-space-4);
+  --spacing-6: var(--primitive-space-6);
+  --spacing-8: var(--primitive-space-8);
+  --spacing-12: var(--primitive-space-12);
+  --spacing-16: var(--primitive-space-16);
+  --spacing-24: var(--primitive-space-24);
+  --spacing-32: var(--primitive-space-32);
+
+  /* Radii */
+  --radius-sm: var(--primitive-radius-sm);
+  --radius-md: var(--primitive-radius-md);
+  --radius-lg: var(--primitive-radius-lg);
+  --radius-full: var(--primitive-radius-full);
+
+  /* Shadows */
+  --shadow-sm: var(--primitive-shadow-sm);
+  --shadow-md: var(--primitive-shadow-md);
+  --shadow-lg: var(--primitive-shadow-lg);
+
+  /* Motion */
+  --duration-micro: var(--primitive-duration-micro);
+  --duration-small: var(--primitive-duration-small);
+  --duration-medium: var(--primitive-duration-medium);
+  --duration-large: var(--primitive-duration-large);
+  --duration-hero: var(--primitive-duration-hero);
+  --ease-standard: var(--primitive-ease-standard);
+  --ease-enter: var(--primitive-ease-enter);
+  --ease-exit: var(--primitive-ease-exit);
+
+  /* Layout */
+  --width-prose: var(--primitive-prose-max-width);
+  --width-container: var(--primitive-container-max);
+  --spacing-gutter-sm: var(--primitive-grid-gutter-sm);
+  --spacing-gutter-md: var(--primitive-grid-gutter-md);
+  --spacing-gutter-lg: var(--primitive-grid-gutter-lg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--semantic-canvas);
+  color: var(--semantic-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--primitive-text-body-size);
+  line-height: var(--primitive-text-body-line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--semantic-accent-primary);
+  color: var(--primitive-neutral-0);
+}
+
+:focus-visible {
+  outline: 2px solid var(--component-focus-ring-color);
+  outline-offset: var(--component-focus-ring-offset);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
