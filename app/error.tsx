@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
-import { Button, Container, Text } from "@/design-system/primitives";
+import { Button, Container, Link, Text } from "@/design-system/primitives";
 
-export default function GlobalError({
+export default function ErrorBoundary({
   error,
   reset,
 }: {
@@ -17,8 +17,7 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <main
-      id="main-content"
+    <div
       className="flex flex-1 flex-col justify-center py-24"
       role="alert"
       aria-labelledby="error-heading"
@@ -31,14 +30,17 @@ export default function GlobalError({
           Something went wrong
         </Text>
         <Text variant="body" as="p" className="text-text-secondary">
-          An unexpected error occurred. You can try again, or return later.
+          An unexpected error occurred. You can try again, or return home.
         </Text>
-        <div>
+        <div className="flex flex-wrap items-center gap-4">
           <Button type="button" variant="secondary" onClick={reset}>
             Try again
           </Button>
+          <Link href="/" variant="accent">
+            Return home
+          </Link>
         </div>
       </Container>
-    </main>
+    </div>
   );
 }

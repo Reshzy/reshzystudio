@@ -245,10 +245,18 @@ export function ImageLightbox({
 
               {images.length > 1 ? (
                 <div className="flex items-center justify-between gap-4">
-                  <Button variant="secondary" onClick={showPrevious}>
+                  <Button
+                    variant="secondary"
+                    onClick={showPrevious}
+                    aria-label="Previous image"
+                  >
                     Previous
                   </Button>
-                  <Button variant="secondary" onClick={showNext}>
+                  <Button
+                    variant="secondary"
+                    onClick={showNext}
+                    aria-label="Next image"
+                  >
                     Next
                   </Button>
                 </div>

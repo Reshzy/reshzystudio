@@ -64,7 +64,7 @@ export function ArtworkTools({ artwork, content }: ArtworkToolsProps) {
                     <Text
                       variant="caption"
                       as="span"
-                      className="font-mono uppercase text-text-secondary"
+                      className="uppercase tracking-wide text-text-secondary tabular-nums"
                     >
                       {color}
                     </Text>

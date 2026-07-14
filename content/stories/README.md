@@ -2,4 +2,4 @@
 
 Narrative content as MDX with frontmatter. One file per story.
 
-Added when story content is authored.
+**Status:** Deferred after Version 1.0. No public `/story` routes ship in v1.

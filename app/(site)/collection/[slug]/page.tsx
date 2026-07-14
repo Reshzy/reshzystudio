@@ -7,7 +7,7 @@ import {
   EmptyState,
   SectionHeading,
 } from "@/design-system/composites";
-import { Reveal, Section } from "@/design-system/primitives";
+import { Reveal, Section, Text } from "@/design-system/primitives";
 import {
   loadAllCollections,
   loadArtworkById,
@@ -91,40 +91,55 @@ export default async function CollectionDetailPage({
   return (
     <>
       <JsonLd data={structuredData} />
-      <Section aria-labelledby="collection-detail-heading">
+      <Section
+        as="header"
+        aria-labelledby="collection-detail-heading"
+        className="pb-8 md:pb-12 lg:pb-16"
+      >
         <div className="flex flex-col gap-12 md:gap-16">
           <Reveal>
-            <SectionHeading
-              eyebrow="Collection"
-              title={collection.title}
-              titleId="collection-detail-heading"
-              titleAs="h1"
-              supporting={collection.description}
-            />
+            <div className="flex flex-col gap-4">
+              <SectionHeading
+                eyebrow="Collection"
+                title={collection.title}
+                titleId="collection-detail-heading"
+                titleAs="h1"
+                supporting={collection.description}
+              />
+              <Text variant="metadata" as="p" tabular>
+                {artworks.length}{" "}
+                {artworks.length === 1 ? "work" : "works"} in this sequence
+              </Text>
+            </div>
           </Reveal>
-
-          {artworks.length === 0 ? (
-            <EmptyState
-              title="No work in this collection"
-              description="Pieces will appear here as they are curated into the sequence."
-              action={{ label: "Back to Collection", href: "/collection" }}
-            />
-          ) : (
-            <ArtworkGrid>
-              {artworks.map((artwork, index) => (
-                <ArtworkGridItem key={artwork.id}>
-                  <Reveal delay={Math.min(index * 0.04, 0.24)}>
-                    <ArtworkCard
-                      artwork={artwork}
-                      variant="standard"
-                      priority={index < 2}
-                    />
-                  </Reveal>
-                </ArtworkGridItem>
-              ))}
-            </ArtworkGrid>
-          )}
         </div>
+      </Section>
+
+      <Section
+        aria-label="Works in this collection"
+        className="pt-0 md:pt-0 lg:pt-0"
+      >
+        {artworks.length === 0 ? (
+          <EmptyState
+            title="No work in this collection"
+            description="Pieces will appear here as they are curated into the sequence."
+            action={{ label: "Back to Collection", href: "/collection" }}
+          />
+        ) : (
+          <ArtworkGrid>
+            {artworks.map((artwork, index) => (
+              <ArtworkGridItem key={artwork.id}>
+                <Reveal delay={Math.min(index * 0.04, 0.24)}>
+                  <ArtworkCard
+                    artwork={artwork}
+                    variant="standard"
+                    priority={index < 2}
+                  />
+                </Reveal>
+              </ArtworkGridItem>
+            ))}
+          </ArtworkGrid>
+        )}
       </Section>
     </>
   );

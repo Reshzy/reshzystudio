@@ -1,14 +1,5 @@
 # Tests
 
-Project-wide testing aligned with architectural systems.
+Unit, integration, accessibility, and end-to-end suites.
 
-## Planned coverage
-
-- Unit tests for `lib/` utilities
-- Integration tests for content loaders
-- Accessibility tests
-- End-to-end exhibition flows
-
-## Rule
-
-Test behavior and contracts, not implementation details.
+**Status:** Harness deferred after Version 1.0. Validate with `pnpm lint`, `pnpm typecheck`, and `pnpm build` before release.

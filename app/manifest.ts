@@ -16,19 +16,16 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ["portfolio", "art", "design"],
     icons: [
       {
-        src: "/favicon.ico",
-        sizes: "any",
-        type: "image/x-icon",
-      },
-      {
         src: "/icon",
         sizes: "32x32",
         type: "image/png",
+        purpose: "any",
       },
       {
         src: "/apple-icon",
         sizes: "180x180",
         type: "image/png",
+        purpose: "any",
       },
     ],
   };

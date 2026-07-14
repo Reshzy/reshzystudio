@@ -10,7 +10,8 @@ export const contentType = "image/png";
 
 export default function AppleIcon() {
   const config = loadSiteConfiguration();
-  const initial = config.identity.siteName.trim().charAt(0).toUpperCase() || "R";
+  const initial =
+    config.identity.siteName.trim().charAt(0).toUpperCase() || "R";
 
   return new ImageResponse(
     (

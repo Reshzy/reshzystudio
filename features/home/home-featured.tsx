@@ -1,9 +1,8 @@
-import { ArtworkTeaser } from "@/design-system/composites";
+import { ArtworkTeaser, SectionHeading } from "@/design-system/composites";
 import {
   ButtonLink,
   Reveal,
   Section,
-  Text,
 } from "@/design-system/primitives";
 import type { ArtworkPreviewModel } from "@/lib/content";
 import type { HomeSectionContent } from "@/types/content";
@@ -24,30 +23,20 @@ export function HomeFeatured({ content, artworks }: HomeFeaturedProps) {
     <Section aria-labelledby="home-featured-heading">
       <div className="flex flex-col gap-12 md:gap-16">
         <Reveal>
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="flex max-w-xl flex-col gap-3">
-              <Text variant="metadata" as="p">
-                Archive
-              </Text>
-              <Text
-                variant="heading"
-                as="h2"
-                id="home-featured-heading"
-              >
-                {content.headline}
-              </Text>
-              {content.supporting ? (
-                <Text variant="body" as="p" className="text-text-secondary">
-                  {content.supporting}
-                </Text>
-              ) : null}
-            </div>
-            {content.cta ? (
-              <ButtonLink href={content.cta.href} variant="ghost">
-                {content.cta.label}
-              </ButtonLink>
-            ) : null}
-          </div>
+          <SectionHeading
+            eyebrow="Archive"
+            title={content.headline}
+            titleId="home-featured-heading"
+            supporting={content.supporting}
+            align="between"
+            actions={
+              content.cta ? (
+                <ButtonLink href={content.cta.href} variant="ghost">
+                  {content.cta.label}
+                </ButtonLink>
+              ) : undefined
+            }
+          />
         </Reveal>
 
         <div className="grid gap-10 md:grid-cols-12 md:gap-8">

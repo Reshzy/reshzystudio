@@ -170,8 +170,9 @@ implementation), **Motion** (animation), `next/image` (image pipeline), `next/fo
 (rich narrative content), Vercel (deploy). Architecture stays portable and framework-independent;
 business logic lives outside the framework. Small, deliberate dependency footprint.
 
-> Repo currently ships a stock Next.js scaffold (Next 16.x, React 19.x, Tailwind v4, TypeScript,
-> pnpm). Some docs say "Next.js 15"; treat the installed version as source of truth for APIs.
+> **Version 1.0** ships on Next.js 16.x, React 19.x, Tailwind v4, TypeScript, and pnpm.
+> Some older docs may mention Next.js 15 — treat the installed version as source of truth for APIs.
+> Readiness status: [`docs/implementation/v1-status.md`](../implementation/v1-status.md).
 
 ---
 
@@ -327,9 +328,8 @@ understand the architecture from the directory tree. Dependencies flow inward:
   docs/             Project documentation (this file lives in docs/ai/).
 ```
 
-> The existing scaffold uses a flat `app/` at the repo root. Introduce the directories above as the
-> real implementation begins; growth should be additive — new features = a new feature module, not a
-> restructure.
+> Architecture directories above are implemented for Version 1.0. Growth remains additive —
+> new capabilities = a new feature module, not a restructure.
 
 ---
 

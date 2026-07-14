@@ -1,13 +1,5 @@
 # Scripts
 
-Development automation for repetitive build and validation tasks.
+Dev automation (content validation, media helpers).
 
-## Planned scripts
-
-- Content validation against schemas
-- Image optimization batch processing
-- Metadata generation helpers
-
-## Rule
-
-Scripts automate work; they do not contain application runtime logic.
+**Status:** Optional tooling deferred after Version 1.0.

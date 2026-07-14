@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { SectionHeading } from "@/design-system/composites";
 import { Reveal, Section, Text } from "@/design-system/primitives";
 import { cn } from "@/design-system/shared";
 import type { HomePageContent } from "@/types/content";
@@ -15,23 +16,12 @@ export function HomeDisciplines({ content }: HomeDisciplinesProps) {
     >
       <div className="flex flex-col gap-12 md:gap-16">
         <Reveal>
-          <div className="flex max-w-xl flex-col gap-3">
-            <Text variant="metadata" as="p">
-              Practice
-            </Text>
-            <Text
-              variant="heading"
-              as="h2"
-              id="home-disciplines-heading"
-            >
-              {content.headline}
-            </Text>
-            {content.supporting ? (
-              <Text variant="body" as="p" className="text-text-secondary">
-                {content.supporting}
-              </Text>
-            ) : null}
-          </div>
+          <SectionHeading
+            eyebrow="Practice"
+            title={content.headline}
+            titleId="home-disciplines-heading"
+            supporting={content.supporting}
+          />
         </Reveal>
 
         <ul className="grid gap-0 border-t border-border-subtle md:grid-cols-2">

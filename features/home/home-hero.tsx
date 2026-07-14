@@ -84,7 +84,12 @@ export function HomeHero({
             unoptimized={featuredArtwork.coverSrc.endsWith(".svg")}
           />
         </HeroEntrance>
-      ) : null}
+      ) : (
+        <div
+          className="relative hidden min-h-[40svh] w-full bg-surface-secondary lg:block lg:min-h-0 lg:w-1/2"
+          aria-hidden="true"
+        />
+      )}
     </section>
   );
 }
