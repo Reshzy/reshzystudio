@@ -1,11 +1,26 @@
+import type { Viewport } from "next";
+import { ThemeProvider, ThemeScript } from "@/features/theme";
 import { loadSiteConfiguration } from "@/lib/content";
-import { buildSiteMetadata } from "@/lib/metadata";
+import {
+  buildSiteMetadata,
+  buildSiteStructuredData,
+  serializeJsonLd,
+} from "@/lib/metadata";
 import { fontVariables } from "@/lib/fonts";
 import "./globals.css";
 
 const siteConfig = loadSiteConfiguration();
+const structuredData = buildSiteStructuredData(siteConfig);
 
 export const metadata = buildSiteMetadata(siteConfig);
+
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafaf9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c0a09" },
+  ],
+};
 
 export default function RootLayout({
   children,
@@ -13,9 +28,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={siteConfig.seo.locale} className={`${fontVariables} h-full`}>
+    <html
+      lang={siteConfig.seo.locale}
+      className={`${fontVariables} h-full`}
+      suppressHydrationWarning
+    >
+      <head>
+        <ThemeScript />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: serializeJsonLd(structuredData),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-canvas font-sans text-text-primary antialiased">
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

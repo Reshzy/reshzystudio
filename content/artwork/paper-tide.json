@@ -1,0 +1,40 @@
+{
+  "id": "artwork-paper-tide",
+  "slug": "paper-tide",
+  "title": "Paper Tide",
+  "summary": "A digital illustration of layered paper planes and soft light — movement held in a quiet register.",
+  "fullDescription": "Paper Tide treats layers as weather. Soft planes overlap without collision, suggesting motion through alignment and tonal shift rather than dramatic contrast.",
+  "creative": {
+    "medium": "Digital illustration",
+    "category": "Digital Illustration",
+    "collectionSlug": "selected-work",
+    "yearCreated": 2026,
+    "status": "published"
+  },
+  "media": {
+    "cover": "/media/artwork/paper-tide/cover.svg",
+    "gallery": ["/media/artwork/paper-tide/cover.svg"],
+    "thumbnail": "/media/artwork/paper-tide/cover.svg"
+  },
+  "technical": {
+    "software": ["Procreate", "Adobe Photoshop"],
+    "aspectRatio": "3 / 4",
+    "colorPalette": ["#f5f5f4", "#a8a29e", "#8b7355", "#292524"]
+  },
+  "tags": ["illustration", "layers", "atmosphere"],
+  "featured": true,
+  "relatedArtworkIds": ["artwork-quiet-hours", "artwork-bronze-signal"],
+  "metadata": {
+    "status": "published",
+    "visibility": "public",
+    "createdAt": "2026-04-18T00:00:00.000Z",
+    "updatedAt": "2026-07-14T00:00:00.000Z",
+    "publishedAt": "2026-07-14T00:00:00.000Z",
+    "seo": {
+      "metaTitle": "Paper Tide",
+      "metaDescription": "A digital illustration of layered paper planes and soft light by Rodge Andru.",
+      "canonicalPath": "/artwork/paper-tide",
+      "socialImage": "/media/artwork/paper-tide/cover.svg"
+    }
+  }
+}

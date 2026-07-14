@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="Bronze Signal">
+  <rect width="1000" height="1000" fill="#0c0a09"/>
+  <rect x="80" y="80" width="840" height="840" fill="none" stroke="#292524" stroke-width="1"/>
+  <path d="M320 700 L500 260 L680 700 Z" fill="none" stroke="#c4a574" stroke-width="3"/>
+  <circle cx="500" cy="520" r="12" fill="#c4a574"/>
+  <line x1="200" y1="820" x2="800" y2="820" stroke="#44403c" stroke-width="1"/>
+  <text x="200" y="870" fill="#f5f5f4" font-family="Georgia, serif" font-size="36" letter-spacing="0.12em">BRONZE SIGNAL</text>
+  <text x="200" y="910" fill="#a8a29e" font-family="system-ui, sans-serif" font-size="15" letter-spacing="0.24em">GRAPHIC COMPOSITION · 2026</text>
+</svg>

@@ -21,3 +21,18 @@ export type { BadgeProps, BadgeVariant } from "./badge/badge";
 
 export { Link } from "./link/link";
 export type { LinkProps, LinkVariant } from "./link/link";
+
+export { ButtonLink } from "./link/button-link";
+export type { ButtonLinkProps, ButtonLinkVariant } from "./link/button-link";
+
+export { Section } from "./layout/section";
+export type { SectionProps } from "./layout/section";
+
+export { SkipLink } from "./a11y/skip-link";
+export type { SkipLinkProps } from "./a11y/skip-link";
+
+export { FadeIn } from "./motion/fade-in";
+export type { FadeInProps } from "./motion/fade-in";
+
+export { Reveal } from "./motion/reveal";
+export type { RevealProps } from "./motion/reveal";

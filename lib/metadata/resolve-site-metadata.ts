@@ -34,13 +34,17 @@ export function buildSiteMetadata(
 ): Metadata {
   const resolved = resolvePageMetadata(config, options);
   const siteUrl = getSiteUrl();
+  const isRootDefaults =
+    !options.overrides?.title && (options.path === undefined || options.path === "/");
 
   return {
     metadataBase: new URL(siteUrl),
-    title: {
-      default: config.seo.defaultTitle,
-      template: config.seo.titleTemplate,
-    },
+    title: isRootDefaults
+      ? {
+          default: config.seo.defaultTitle,
+          template: config.seo.titleTemplate,
+        }
+      : resolved.title,
     description: resolved.description,
     alternates: {
       canonical: resolved.canonicalUrl,

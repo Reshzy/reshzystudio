@@ -2,4 +2,4 @@
 
 Artwork records as structured JSON. One file per artwork.
 
-Added when artwork content is authored.
+Media assets live in `public/media/artwork/{slug}/` and are referenced by path from each record.

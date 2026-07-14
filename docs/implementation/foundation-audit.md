@@ -591,10 +591,10 @@ P0 foundation work is **complete**. The project now has:
 - Content-driven metadata pipeline with OG/Twitter/canonical generation
 - Scaffold debt removed from `app/` and `public/`
 
-**Remaining work is P1+:** motion library, Prettier, route skeleton, error/loading boundaries, theme provider, sitemap/robots, first design-system primitives, and accessibility test harness.
+**Sprint 1 (2026-07-14) completed application shell:** theme provider + FOUC script, navigation/footer, motion foundation (`motion` + presets/wrappers), route skeleton (`/`, `/collection`, `/artwork`, `/about`, `/contact`), skip link, error/loading/not-found boundaries, sitemap/robots, JSON-LD structured data.
 
-**Next document to produce:** `docs/implementation/foundation-plan.md` (P1 implementation checklist).
+**Remaining P1+:** Prettier, accessibility test harness, page content (Home first), dynamic `[slug]` routes.
 
 ---
 
-*P0 foundation implemented 2026-07-14. No feature pages or placeholder components were added.*
+*P0 foundation + Sprint 1 application shell implemented 2026-07-14. Home page content intentionally deferred.*

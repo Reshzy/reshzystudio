@@ -108,6 +108,11 @@ export interface NavigationItem {
   order: number;
 }
 
+export interface FooterConfiguration {
+  email?: string;
+  socialLinks: SocialLink[];
+}
+
 export interface SiteSeoConfig {
   defaultTitle: string;
   titleTemplate: string;
@@ -130,6 +135,7 @@ export interface SiteConfiguration {
   seo: SiteSeoConfig;
   social: SiteSocialConfig;
   navigation: NavigationItem[];
+  footer: FooterConfiguration;
   featureFlags: Record<string, boolean>;
 }
 
@@ -139,4 +145,38 @@ export interface ResolvedPageMetadata {
   canonicalUrl: string;
   openGraphImage?: string;
   noIndex: boolean;
+}
+
+export interface ContentLink {
+  label: string;
+  href: string;
+}
+
+export interface HomeHeroContent {
+  headline: string;
+  supporting: string;
+  cta: ContentLink;
+}
+
+export interface HomeSectionContent {
+  headline: string;
+  supporting?: string;
+  body?: string;
+  cta?: ContentLink;
+}
+
+export interface DisciplinePreview {
+  label: string;
+  description: string;
+  href: string;
+}
+
+export interface HomePageContent {
+  hero: HomeHeroContent;
+  introduction: HomeSectionContent;
+  featured: HomeSectionContent;
+  disciplines: HomeSectionContent & {
+    items: DisciplinePreview[];
+  };
+  cta: HomeSectionContent;
 }

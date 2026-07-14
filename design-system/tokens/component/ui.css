@@ -51,7 +51,7 @@
   --component-link-hover: var(--semantic-accent-primary-hover);
 
   /* Navigation & gallery */
-  --component-navigation-background: var(--semantic-surface-primary);
+  --component-navigation-background: var(--semantic-canvas);
   --component-navigation-foreground: var(--semantic-text-primary);
   --component-gallery-frame: var(--semantic-border-subtle);
 

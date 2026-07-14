@@ -1,0 +1,40 @@
+{
+  "id": "artwork-quiet-hours",
+  "slug": "quiet-hours",
+  "title": "Quiet Hours",
+  "summary": "An editorial poster study in muted bronze and stone — built around a single horizon and restrained type.",
+  "fullDescription": "Quiet Hours explores negative space as structure. The composition keeps the viewer at a measured distance, using a low horizon and sparse typography to create stillness rather than spectacle.",
+  "creative": {
+    "medium": "Digital poster",
+    "category": "Poster Design",
+    "collectionSlug": "selected-work",
+    "yearCreated": 2025,
+    "status": "published"
+  },
+  "media": {
+    "cover": "/media/artwork/quiet-hours/cover.svg",
+    "gallery": ["/media/artwork/quiet-hours/cover.svg"],
+    "thumbnail": "/media/artwork/quiet-hours/cover.svg"
+  },
+  "technical": {
+    "software": ["Adobe Illustrator", "Figma"],
+    "aspectRatio": "4 / 5",
+    "colorPalette": ["#fafaf9", "#8b7355", "#1c1917"]
+  },
+  "tags": ["poster", "editorial", "minimal"],
+  "featured": true,
+  "relatedArtworkIds": ["artwork-bronze-signal", "artwork-paper-tide"],
+  "metadata": {
+    "status": "published",
+    "visibility": "public",
+    "createdAt": "2025-11-12T00:00:00.000Z",
+    "updatedAt": "2026-07-14T00:00:00.000Z",
+    "publishedAt": "2026-07-14T00:00:00.000Z",
+    "seo": {
+      "metaTitle": "Quiet Hours",
+      "metaDescription": "An editorial poster study in muted bronze and stone by Rodge Andru.",
+      "canonicalPath": "/artwork/quiet-hours",
+      "socialImage": "/media/artwork/quiet-hours/cover.svg"
+    }
+  }
+}

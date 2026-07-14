@@ -1,0 +1,10 @@
+export { HomeHero } from "./home-hero";
+export type { HomeHeroProps } from "./home-hero";
+export { HomeIntroduction } from "./home-introduction";
+export type { HomeIntroductionProps } from "./home-introduction";
+export { HomeFeatured } from "./home-featured";
+export type { HomeFeaturedProps } from "./home-featured";
+export { HomeDisciplines } from "./home-disciplines";
+export type { HomeDisciplinesProps } from "./home-disciplines";
+export { HomeCta } from "./home-cta";
+export type { HomeCtaProps } from "./home-cta";

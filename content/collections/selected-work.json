@@ -1,0 +1,25 @@
+{
+  "id": "collection-selected-work",
+  "slug": "selected-work",
+  "title": "Selected Work",
+  "description": "A curated sequence of digital illustration, graphic design, and poster studies from the studio.",
+  "coverImage": "/media/artwork/quiet-hours/cover.svg",
+  "featuredArtworkIds": [
+    "artwork-quiet-hours",
+    "artwork-bronze-signal",
+    "artwork-paper-tide"
+  ],
+  "displayOrder": 1,
+  "metadata": {
+    "status": "published",
+    "visibility": "public",
+    "createdAt": "2026-07-01T00:00:00.000Z",
+    "updatedAt": "2026-07-14T00:00:00.000Z",
+    "publishedAt": "2026-07-14T00:00:00.000Z",
+    "seo": {
+      "metaTitle": "Selected Work",
+      "metaDescription": "A curated sequence of creative work from Rodge Andru.",
+      "canonicalPath": "/collection/selected-work"
+    }
+  }
+}

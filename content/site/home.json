@@ -1,0 +1,60 @@
+{
+  "hero": {
+    "headline": "Selected creative work",
+    "supporting": "An exhibition of digital illustration, graphic design, and poster studies by Rodge Andru P. Viloria.",
+    "cta": {
+      "label": "Explore Collection",
+      "href": "/collection"
+    }
+  },
+  "introduction": {
+    "headline": "Studio",
+    "body": "I build images with restraint — composition first, decoration last. Each piece is curated for clarity, atmosphere, and lasting impression.",
+    "cta": {
+      "label": "Read Story",
+      "href": "/about"
+    }
+  },
+  "featured": {
+    "headline": "Selected Work",
+    "supporting": "A short sequence from the current exhibition.",
+    "cta": {
+      "label": "View Artwork",
+      "href": "/artwork"
+    }
+  },
+  "disciplines": {
+    "headline": "Practice",
+    "supporting": "The disciplines that shape the archive.",
+    "items": [
+      {
+        "label": "Digital Illustration",
+        "description": "Narrative images built for mood, character, and quiet detail.",
+        "href": "/collection"
+      },
+      {
+        "label": "Graphic Design",
+        "description": "Visual systems where type, space, and hierarchy do the work.",
+        "href": "/collection"
+      },
+      {
+        "label": "Poster Design",
+        "description": "Single-frame compositions meant to hold attention from a distance.",
+        "href": "/collection"
+      },
+      {
+        "label": "Anime",
+        "description": "Stylized figure work informed by pacing, gesture, and line.",
+        "href": "/collection"
+      }
+    ]
+  },
+  "cta": {
+    "headline": "Start a conversation",
+    "body": "For commissions, collaboration, or a quiet note about the work — write when you are ready.",
+    "cta": {
+      "label": "Start a Conversation",
+      "href": "/contact"
+    }
+  }
+}

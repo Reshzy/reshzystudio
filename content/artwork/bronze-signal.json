@@ -1,0 +1,40 @@
+{
+  "id": "artwork-bronze-signal",
+  "slug": "bronze-signal",
+  "title": "Bronze Signal",
+  "summary": "A graphic composition using a single accent mark against a deep neutral field — signal without noise.",
+  "fullDescription": "Bronze Signal is a study in emphasis. One accent form carries the composition while surrounding space remains disciplined, allowing the mark to read clearly at both intimate and exhibition scale.",
+  "creative": {
+    "medium": "Graphic design",
+    "category": "Graphic Design",
+    "collectionSlug": "selected-work",
+    "yearCreated": 2026,
+    "status": "published"
+  },
+  "media": {
+    "cover": "/media/artwork/bronze-signal/cover.svg",
+    "gallery": ["/media/artwork/bronze-signal/cover.svg"],
+    "thumbnail": "/media/artwork/bronze-signal/cover.svg"
+  },
+  "technical": {
+    "software": ["Adobe Illustrator"],
+    "aspectRatio": "1 / 1",
+    "colorPalette": ["#0c0a09", "#c4a574", "#f5f5f4"]
+  },
+  "tags": ["graphic", "mark", "identity"],
+  "featured": true,
+  "relatedArtworkIds": ["artwork-quiet-hours", "artwork-paper-tide"],
+  "metadata": {
+    "status": "published",
+    "visibility": "public",
+    "createdAt": "2026-02-03T00:00:00.000Z",
+    "updatedAt": "2026-07-14T00:00:00.000Z",
+    "publishedAt": "2026-07-14T00:00:00.000Z",
+    "seo": {
+      "metaTitle": "Bronze Signal",
+      "metaDescription": "A graphic composition using a single accent mark against a deep neutral field.",
+      "canonicalPath": "/artwork/bronze-signal",
+      "socialImage": "/media/artwork/bronze-signal/cover.svg"
+    }
+  }
+}
