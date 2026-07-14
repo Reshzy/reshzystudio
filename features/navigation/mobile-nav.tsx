@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { CloseIcon, MenuIcon } from "@/design-system/icons";
 import { Text } from "@/design-system/primitives";
 import { cn } from "@/design-system/shared";
+import { useFocusTrap } from "@/lib/a11y";
 import {
   duration,
   ease,
@@ -24,8 +25,12 @@ export interface MobileNavProps {
 export function MobileNav({ items, className }: MobileNavProps) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const panelRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const shouldReduceMotion = useReducedMotion();
+
+  useFocusTrap(panelRef, open);
 
   useEffect(() => {
     if (!open) {
@@ -33,6 +38,7 @@ export function MobileNav({ items, className }: MobileNavProps) {
     }
 
     const previousOverflow = document.body.style.overflow;
+    const trigger = triggerRef.current;
     document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
 
@@ -47,6 +53,7 @@ export function MobileNav({ items, className }: MobileNavProps) {
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
+      trigger?.focus();
     };
   }, [open]);
 
@@ -55,6 +62,7 @@ export function MobileNav({ items, className }: MobileNavProps) {
   return (
     <div className={cn("md:hidden", className)}>
       <button
+        ref={triggerRef}
         type="button"
         className={cn(
           "inline-flex size-10 items-center justify-center rounded-full",
@@ -64,6 +72,7 @@ export function MobileNav({ items, className }: MobileNavProps) {
         )}
         aria-expanded={open}
         aria-controls={panelId}
+        aria-haspopup="dialog"
         aria-label={open ? "Close navigation" : "Open navigation"}
         onClick={() => setOpen((value) => !value)}
       >
@@ -73,6 +82,7 @@ export function MobileNav({ items, className }: MobileNavProps) {
       <AnimatePresence>
         {open ? (
           <motion.div
+            ref={panelRef}
             id={panelId}
             role="dialog"
             aria-modal="true"

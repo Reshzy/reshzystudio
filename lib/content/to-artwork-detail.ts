@@ -1,4 +1,5 @@
 import type { Artwork, ArtworkStory } from "@/types/content";
+import { resolveArtworkAlt } from "@/lib/a11y";
 import {
   toArtworkPreview,
   type ArtworkPreviewModel,
@@ -42,6 +43,7 @@ export interface ArtworkDetailModel {
   colorPalette: string[];
   tags: string[];
   coverSrc: string;
+  coverAlt: string;
   gallery: ArtworkGalleryItem[];
   relatedWork: ArtworkPreviewModel[];
   previous: ArtworkNavigationLink | null;
@@ -75,7 +77,10 @@ function resolveSupportingGallery(artwork: Artwork): ArtworkGalleryItem[] {
 
   return unique.map((src, index) => ({
     src,
-    alt: `${artwork.title} — study ${index + 1}`,
+    alt: resolveArtworkAlt(
+      `${artwork.title} — study ${index + 1}`,
+      artwork.summary,
+    ),
   }));
 }
 
@@ -137,6 +142,7 @@ export function toArtworkDetail(artwork: Artwork): ArtworkDetailModel {
     colorPalette: artwork.technical?.colorPalette ?? [],
     tags: artwork.tags,
     coverSrc: artwork.media.cover,
+    coverAlt: resolveArtworkAlt(artwork.title, artwork.summary),
     gallery: resolveSupportingGallery(artwork),
     relatedWork: resolveRelatedWork(artwork),
     previous: neighbors.previous,

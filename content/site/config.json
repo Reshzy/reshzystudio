@@ -8,12 +8,19 @@
     "defaultTitle": "Rodge Andru",
     "titleTemplate": "%s · Rodge Andru",
     "defaultDescription": "A curated exhibition of digital illustration, graphic design, and creative work by Rodge Andru P. Viloria.",
+    "defaultKeywords": [
+      "Rodge Andru",
+      "Rodge Andru Viloria",
+      "Graphic Designer Philippines",
+      "Digital Artist Philippines",
+      "Portfolio",
+      "Digital Illustration",
+      "Poster Design"
+    ],
     "locale": "en",
     "siteUrl": "https://reshzystudio.com"
   },
-  "social": {
-    "ogImage": "/og-default.jpg"
-  },
+  "social": {},
   "navigation": [
     { "label": "Home", "href": "/", "order": 1 },
     { "label": "Collection", "href": "/collection", "order": 2 },

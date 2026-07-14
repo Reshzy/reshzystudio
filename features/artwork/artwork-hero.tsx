@@ -61,7 +61,7 @@ export function ArtworkHero({ artwork }: ArtworkHeroProps) {
           >
             <Image
               src={artwork.coverSrc}
-              alt={artwork.title}
+              alt={artwork.coverAlt}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 58vw"

@@ -15,6 +15,7 @@ import { CloseIcon } from "@/design-system/icons";
 import { Button } from "@/design-system/primitives/button/button";
 import { Text } from "@/design-system/primitives/typography/text";
 import { cn } from "@/design-system/shared";
+import { useFocusTrap } from "@/lib/a11y";
 import {
   fadeTransition,
   microTransition,
@@ -39,6 +40,7 @@ export function ImageLightbox({
   aspectRatio = "4 / 5",
 }: ImageLightboxProps) {
   const titleId = useId();
+  const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const lastTriggerRef = useRef<HTMLElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -46,6 +48,8 @@ export function ImageLightbox({
 
   const isOpen = activeIndex !== null;
   const activeImage = activeIndex !== null ? images[activeIndex] : null;
+
+  useFocusTrap(dialogRef, isOpen);
 
   const close = useCallback(() => {
     setActiveIndex(null);
@@ -179,6 +183,7 @@ export function ImageLightbox({
       <AnimatePresence>
         {isOpen && activeImage ? (
           <motion.div
+            ref={dialogRef}
             className="fixed inset-0 z-50 flex items-center justify-center bg-canvas/95 p-4 md:p-8"
             role="dialog"
             aria-modal="true"

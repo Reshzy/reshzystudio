@@ -69,7 +69,7 @@ export function ArtworkCard({
         >
           <Image
             src={artwork.coverSrc}
-            alt={artwork.title}
+            alt={artwork.coverAlt}
             fill
             sizes={imageSizes[variant]}
             priority={priority}

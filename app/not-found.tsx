@@ -1,12 +1,23 @@
-import { Container, Link, Text } from "@/design-system/primitives";
+import { SkipLink, Container, Link, Text } from "@/design-system/primitives";
 import { SiteFooter, SiteHeader } from "@/features/navigation";
 import { loadSiteConfiguration } from "@/lib/content";
+import { buildSiteMetadata } from "@/lib/metadata";
 
 const siteConfig = loadSiteConfiguration();
+
+export const metadata = buildSiteMetadata(siteConfig, {
+  path: "/",
+  overrides: {
+    title: "Page not found",
+    description: "The page you are looking for does not exist or has been moved.",
+    noIndex: true,
+  },
+});
 
 export default function NotFound() {
   return (
     <>
+      <SkipLink />
       <SiteHeader
         siteName={siteConfig.identity.siteName}
         items={siteConfig.navigation}

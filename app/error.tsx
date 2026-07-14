@@ -17,12 +17,17 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <main className="flex flex-1 flex-col justify-center py-24">
+    <main
+      id="main-content"
+      className="flex flex-1 flex-col justify-center py-24"
+      role="alert"
+      aria-labelledby="error-heading"
+    >
       <Container width="prose" className="flex flex-col gap-6">
         <Text variant="metadata" as="p">
           Error
         </Text>
-        <Text variant="heading" as="h1">
+        <Text variant="heading" as="h1" id="error-heading">
           Something went wrong
         </Text>
         <Text variant="body" as="p" className="text-text-secondary">

@@ -8,7 +8,7 @@ import {
 import {
   buildAboutStructuredData,
   buildSiteMetadata,
-  serializeJsonLd,
+  JsonLd,
 } from "@/lib/metadata";
 
 const siteConfig = loadSiteConfiguration();
@@ -21,6 +21,12 @@ export const metadata: Metadata = buildSiteMetadata(siteConfig, {
     description:
       profile.shortBio ||
       `Meet ${siteConfig.identity.owner} — the artist behind the exhibition.`,
+    keywords: [
+      ...siteConfig.seo.defaultKeywords,
+      "About",
+      profile.name,
+    ],
+    openGraphType: "profile",
   },
 });
 
@@ -30,12 +36,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: serializeJsonLd(structuredData),
-        }}
-      />
+      <JsonLd data={structuredData} />
       <AboutPageExperience profile={profile} content={about} />
     </>
   );

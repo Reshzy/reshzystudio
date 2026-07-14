@@ -4,7 +4,7 @@ import { loadProfile, loadSiteConfiguration } from "@/lib/content";
 import {
   buildSiteMetadata,
   buildSiteStructuredData,
-  serializeJsonLd,
+  JsonLd,
 } from "@/lib/metadata";
 import { fontVariables } from "@/lib/fonts";
 import "./globals.css";
@@ -36,12 +36,7 @@ export default function RootLayout({
     >
       <head>
         <ThemeScript />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: serializeJsonLd(structuredData),
-          }}
-        />
+        <JsonLd data={structuredData} />
       </head>
       <body className="min-h-full flex flex-col bg-canvas font-sans text-text-primary antialiased">
         <ThemeProvider>{children}</ThemeProvider>

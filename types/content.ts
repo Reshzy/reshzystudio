@@ -257,13 +257,15 @@ export interface SiteSeoConfig {
   defaultTitle: string;
   titleTemplate: string;
   defaultDescription: string;
+  defaultKeywords: string[];
   locale: string;
   siteUrl: string;
 }
 
 export interface SiteSocialConfig {
   twitterHandle?: string;
-  ogImage: string;
+  /** Raster social preview image. SVG paths are ignored for OG/Twitter cards. */
+  ogImage?: string;
 }
 
 export interface SiteConfiguration {
@@ -284,7 +286,9 @@ export interface ResolvedPageMetadata {
   description: string;
   canonicalUrl: string;
   openGraphImage?: string;
+  keywords?: string[];
   noIndex: boolean;
+  openGraphType?: "website" | "article" | "profile";
 }
 
 export interface ContentLink {

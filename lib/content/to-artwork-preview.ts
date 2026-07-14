@@ -1,4 +1,5 @@
 import type { Artwork } from "@/types/content";
+import { resolveArtworkAlt } from "@/lib/a11y";
 
 /**
  * Immutable presentation model for artwork teasers, grids, and filters.
@@ -10,6 +11,7 @@ export interface ArtworkPreviewModel {
   href: string;
   summary: string;
   coverSrc: string;
+  coverAlt: string;
   category: string;
   categorySlug: string;
   year: number;
@@ -37,6 +39,7 @@ export function toArtworkPreview(artwork: Artwork): ArtworkPreviewModel {
     href: `/artwork/${artwork.slug}`,
     summary: artwork.summary,
     coverSrc: artwork.media.cover,
+    coverAlt: resolveArtworkAlt(artwork.title, artwork.summary),
     category: artwork.creative.category,
     categorySlug: toCategorySlug(artwork.creative.category),
     year: artwork.creative.yearCreated,

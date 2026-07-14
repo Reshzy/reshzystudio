@@ -3,7 +3,6 @@ import {
   ButtonLink,
   Container,
   HeroEntrance,
-  Reveal,
   Text,
 } from "@/design-system/primitives";
 import { staggerDelay } from "@/lib/animation";
@@ -77,7 +76,7 @@ export function HomeHero({
         >
           <Image
             src={featuredArtwork.coverSrc}
-            alt={featuredArtwork.title}
+            alt={featuredArtwork.coverAlt}
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"

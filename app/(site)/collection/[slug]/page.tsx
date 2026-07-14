@@ -15,7 +15,11 @@ import {
   loadSiteConfiguration,
   toArtworkPreview,
 } from "@/lib/content";
-import { buildSiteMetadata } from "@/lib/metadata";
+import {
+  buildCollectionStructuredData,
+  buildSiteMetadata,
+  JsonLd,
+} from "@/lib/metadata";
 
 interface CollectionDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -38,13 +42,21 @@ export async function generateMetadata({
   }
 
   const siteConfig = loadSiteConfiguration();
+  const path =
+    collection.metadata.seo.canonicalPath ?? `/collection/${collection.slug}`;
 
   return buildSiteMetadata(siteConfig, {
-    path: `/collection/${collection.slug}`,
+    path,
     overrides: {
       title: collection.metadata.seo.metaTitle ?? collection.title,
       description:
         collection.metadata.seo.metaDescription ?? collection.description,
+      openGraphImage: collection.coverImage,
+      keywords: [
+        ...siteConfig.seo.defaultKeywords,
+        collection.title,
+        "Collection",
+      ],
     },
   });
 }
@@ -59,6 +71,7 @@ export default async function CollectionDetailPage({
     notFound();
   }
 
+  const siteConfig = loadSiteConfiguration();
   const artworks = collection.featuredArtworkIds
     .map((id) => loadArtworkById(id))
     .filter((artwork): artwork is NonNullable<typeof artwork> =>
@@ -66,41 +79,53 @@ export default async function CollectionDetailPage({
     )
     .map(toArtworkPreview);
 
-  return (
-    <Section aria-labelledby="collection-detail-heading">
-      <div className="flex flex-col gap-12 md:gap-16">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Collection"
-            title={collection.title}
-            titleId="collection-detail-heading"
-            titleAs="h1"
-            supporting={collection.description}
-          />
-        </Reveal>
+  const structuredData = buildCollectionStructuredData(
+    collection,
+    siteConfig,
+    artworks.map((artwork) => ({
+      name: artwork.title,
+      path: artwork.href,
+    })),
+  );
 
-        {artworks.length === 0 ? (
-          <EmptyState
-            title="No work in this collection"
-            description="Pieces will appear here as they are curated into the sequence."
-            action={{ label: "Back to Collection", href: "/collection" }}
-          />
-        ) : (
-          <ArtworkGrid>
-            {artworks.map((artwork, index) => (
-              <ArtworkGridItem key={artwork.id}>
-                <Reveal delay={Math.min(index * 0.04, 0.24)}>
-                  <ArtworkCard
-                    artwork={artwork}
-                    variant="standard"
-                    priority={index < 2}
-                  />
-                </Reveal>
-              </ArtworkGridItem>
-            ))}
-          </ArtworkGrid>
-        )}
-      </div>
-    </Section>
+  return (
+    <>
+      <JsonLd data={structuredData} />
+      <Section aria-labelledby="collection-detail-heading">
+        <div className="flex flex-col gap-12 md:gap-16">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Collection"
+              title={collection.title}
+              titleId="collection-detail-heading"
+              titleAs="h1"
+              supporting={collection.description}
+            />
+          </Reveal>
+
+          {artworks.length === 0 ? (
+            <EmptyState
+              title="No work in this collection"
+              description="Pieces will appear here as they are curated into the sequence."
+              action={{ label: "Back to Collection", href: "/collection" }}
+            />
+          ) : (
+            <ArtworkGrid>
+              {artworks.map((artwork, index) => (
+                <ArtworkGridItem key={artwork.id}>
+                  <Reveal delay={Math.min(index * 0.04, 0.24)}>
+                    <ArtworkCard
+                      artwork={artwork}
+                      variant="standard"
+                      priority={index < 2}
+                    />
+                  </Reveal>
+                </ArtworkGridItem>
+              ))}
+            </ArtworkGrid>
+          )}
+        </div>
+      </Section>
+    </>
   );
 }

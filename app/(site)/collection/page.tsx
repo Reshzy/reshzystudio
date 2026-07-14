@@ -17,7 +17,11 @@ import {
   resolveCategoryParam,
   toArtworkPreview,
 } from "@/lib/content";
-import { buildSiteMetadata } from "@/lib/metadata";
+import {
+  buildCollectionPageStructuredData,
+  buildSiteMetadata,
+  JsonLd,
+} from "@/lib/metadata";
 
 const siteConfig = loadSiteConfiguration();
 
@@ -27,6 +31,11 @@ export const metadata: Metadata = buildSiteMetadata(siteConfig, {
     title: "Collection",
     description:
       "A curated collection of digital illustration, graphic design, and creative work.",
+    keywords: [
+      ...siteConfig.seo.defaultKeywords,
+      "Collection",
+      "Curated Work",
+    ],
   },
 });
 
@@ -57,31 +66,50 @@ export default async function CollectionPage({
     validCategory,
   );
 
+  const structuredData = buildCollectionPageStructuredData({
+    config: siteConfig,
+    path: "/collection",
+    name: "Collection",
+    description:
+      "A curated collection of digital illustration, graphic design, and creative work.",
+    breadcrumbs: [
+      { name: "Home", path: "/" },
+      { name: "Collection", path: "/collection" },
+    ],
+    items: allArtworks.map((artwork) => ({
+      name: artwork.title,
+      path: artwork.href,
+    })),
+  });
+
   return (
-    <div className="flex flex-1 flex-col">
-      <CollectionHero
-        content={content.hero}
-        totalCount={allArtworks.length}
-      />
-      <CollectionFeatured
-        artworks={featuredArtworks}
-        content={content.featured}
-      />
-      <CollectionCategories
-        categories={categories}
-        content={content.categories}
-        activeCategory={validCategory}
-      />
-      <CollectionArchive
-        artworks={archiveArtworks}
-        categories={categories}
-        content={content.archive}
-        activeCategory={validCategory}
-      />
-      <CollectionTechnologies
-        technologies={technologies}
-        content={content.technologies}
-      />
-    </div>
+    <>
+      <JsonLd data={structuredData} />
+      <div className="flex flex-1 flex-col">
+        <CollectionHero
+          content={content.hero}
+          totalCount={allArtworks.length}
+        />
+        <CollectionFeatured
+          artworks={featuredArtworks}
+          content={content.featured}
+        />
+        <CollectionCategories
+          categories={categories}
+          content={content.categories}
+          activeCategory={validCategory}
+        />
+        <CollectionArchive
+          artworks={archiveArtworks}
+          categories={categories}
+          content={content.archive}
+          activeCategory={validCategory}
+        />
+        <CollectionTechnologies
+          technologies={technologies}
+          content={content.technologies}
+        />
+      </div>
+    </>
   );
 }

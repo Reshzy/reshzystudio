@@ -11,7 +11,7 @@ import {
 import {
   buildArtworkStructuredData,
   buildSiteMetadata,
-  serializeJsonLd,
+  JsonLd,
 } from "@/lib/metadata";
 
 interface ArtworkPageProps {
@@ -41,6 +41,13 @@ export async function generateMetadata({
       title: detail.seo.metaTitle,
       description: detail.seo.metaDescription,
       openGraphImage: detail.seo.socialImage,
+      keywords: [
+        ...siteConfig.seo.defaultKeywords,
+        artwork.title,
+        artwork.creative.category,
+        ...artwork.tags,
+      ],
+      openGraphType: "article",
     },
   });
 }
@@ -60,12 +67,7 @@ export default async function ArtworkPage({ params }: ArtworkPageProps) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: serializeJsonLd(structuredData),
-        }}
-      />
+      <JsonLd data={structuredData} />
       <ArtworkExperience artwork={detail} content={content} />
     </>
   );

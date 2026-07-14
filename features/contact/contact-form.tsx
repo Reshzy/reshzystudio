@@ -176,7 +176,7 @@ export function ContactForm({ content }: ContactFormProps) {
             ) : null}
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Button type="submit" disabled={pending}>
+              <Button type="submit" disabled={pending} aria-busy={pending}>
                 {pending ? content.submittingLabel : content.submitLabel}
               </Button>
               {pending ? (

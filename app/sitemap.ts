@@ -14,19 +14,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route.priority,
   }));
 
-  const artworkEntries = loadAllArtwork().map((artwork) => ({
-    url: `${siteUrl}/artwork/${artwork.slug}`,
-    lastModified: new Date(artwork.metadata.updatedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  const artworkEntries = loadAllArtwork().map((artwork) => {
+    const path =
+      artwork.metadata.seo.canonicalPath ?? `/artwork/${artwork.slug}`;
 
-  const collectionEntries = loadAllCollections().map((collection) => ({
-    url: `${siteUrl}/collection/${collection.slug}`,
-    lastModified: new Date(collection.metadata.updatedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.75,
-  }));
+    return {
+      url: `${siteUrl}${path}`,
+      lastModified: new Date(artwork.metadata.updatedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    };
+  });
+
+  const collectionEntries = loadAllCollections().map((collection) => {
+    const path =
+      collection.metadata.seo.canonicalPath ??
+      `/collection/${collection.slug}`;
+
+    return {
+      url: `${siteUrl}${path}`,
+      lastModified: new Date(collection.metadata.updatedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    };
+  });
 
   return [...staticEntries, ...artworkEntries, ...collectionEntries];
 }

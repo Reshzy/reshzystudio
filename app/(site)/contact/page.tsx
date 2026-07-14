@@ -5,7 +5,11 @@ import {
   loadProfile,
   loadSiteConfiguration,
 } from "@/lib/content";
-import { buildSiteMetadata } from "@/lib/metadata";
+import {
+  buildSiteMetadata,
+  buildWebPageStructuredData,
+  JsonLd,
+} from "@/lib/metadata";
 
 const siteConfig = loadSiteConfiguration();
 const profile = loadProfile();
@@ -18,9 +22,34 @@ export const metadata: Metadata = buildSiteMetadata(siteConfig, {
     description:
       contact.hero.supporting ??
       `Start a conversation with ${siteConfig.identity.owner}.`,
+    keywords: [
+      ...siteConfig.seo.defaultKeywords,
+      "Contact",
+      "Commission",
+      "Collaboration",
+    ],
   },
 });
 
 export default function ContactPage() {
-  return <ContactExperience content={contact} profile={profile} />;
+  const structuredData = buildWebPageStructuredData({
+    config: siteConfig,
+    path: "/contact",
+    name: "Contact",
+    description:
+      contact.hero.supporting ??
+      `Start a conversation with ${siteConfig.identity.owner}.`,
+    breadcrumbs: [
+      { name: "Home", path: "/" },
+      { name: "Contact", path: "/contact" },
+    ],
+    profile,
+  });
+
+  return (
+    <>
+      <JsonLd data={structuredData} />
+      <ContactExperience content={contact} profile={profile} />
+    </>
+  );
 }
