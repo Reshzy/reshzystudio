@@ -1,4 +1,5 @@
 import type { Viewport } from "next";
+import NextTopLoader from "nextjs-toploader";
 import { ThemeProvider, ThemeScript } from "@/features/theme";
 import { loadProfile, loadSiteConfiguration } from "@/lib/content";
 import {
@@ -39,6 +40,14 @@ export default function RootLayout({
         <JsonLd data={structuredData} />
       </head>
       <body className="min-h-full flex flex-col bg-canvas font-sans text-text-primary antialiased">
+        <NextTopLoader
+          color="#8b7355"
+          initialPosition={0.08}
+          crawl={true}
+          showSpinner={false}
+          height={3}
+          shadow="0 0 10px #8b7355,0 0 5px #8b7355"
+        />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
