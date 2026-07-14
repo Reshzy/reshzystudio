@@ -1,5 +1,5 @@
 import { SectionHeading } from "@/design-system/composites";
-import { Grid, Reveal, Section, Text } from "@/design-system/primitives";
+import { Reveal, Section, Text } from "@/design-system/primitives";
 import type { AboutPageContent, FunFactEntry } from "@/types/content";
 
 export interface AboutFunFactsProps {
@@ -13,7 +13,10 @@ export function AboutFunFacts({ facts, content }: AboutFunFactsProps) {
   }
 
   return (
-    <Section aria-labelledby="about-fun-facts-heading">
+    <Section
+      aria-labelledby="about-fun-facts-heading"
+      className="border-t border-border-subtle"
+    >
       <div className="flex flex-col gap-12 md:gap-16">
         <Reveal>
           <SectionHeading
@@ -24,11 +27,14 @@ export function AboutFunFacts({ facts, content }: AboutFunFactsProps) {
           />
         </Reveal>
 
-        <Grid as="ul" columns={2} gap="lg">
+        <ul className="grid gap-0 border-t border-border-subtle sm:grid-cols-2">
           {facts.map((fact, index) => (
-            <li key={fact.id}>
+            <li
+              key={fact.id}
+              className="border-b border-border-subtle py-8 sm:odd:border-r sm:odd:pr-8 sm:even:pl-8"
+            >
               <Reveal delay={index * 0.04}>
-                <article className="flex flex-col gap-2 border-t border-border-subtle pt-6">
+                <article className="flex flex-col gap-2">
                   <Text variant="subheading" as="h3">
                     {fact.label}
                   </Text>
@@ -39,7 +45,7 @@ export function AboutFunFacts({ facts, content }: AboutFunFactsProps) {
               </Reveal>
             </li>
           ))}
-        </Grid>
+        </ul>
       </div>
     </Section>
   );

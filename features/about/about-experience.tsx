@@ -1,5 +1,8 @@
-import { SectionHeading } from "@/design-system/composites";
-import { Reveal, Section, Text } from "@/design-system/primitives";
+import {
+  ExperienceCard,
+  SectionHeading,
+} from "@/design-system/composites";
+import { Reveal, Section } from "@/design-system/primitives";
 import type { AboutPageContent, ExperienceEntry } from "@/types/content";
 
 export interface AboutExperienceProps {
@@ -34,28 +37,12 @@ export function AboutExperience({ entries, content }: AboutExperienceProps) {
               className="border-b border-border-subtle py-8 md:py-10"
             >
               <Reveal delay={index * 0.04}>
-                <div className="grid gap-4 md:grid-cols-12 md:gap-8">
-                  <div className="md:col-span-3">
-                    <Text variant="metadata" as="p" tabular>
-                      {entry.period}
-                    </Text>
-                  </div>
-                  <div className="flex flex-col gap-3 md:col-span-9">
-                    <Text variant="subheading" as="h3">
-                      {entry.role}
-                    </Text>
-                    <Text variant="body" as="p" className="text-text-primary">
-                      {entry.organization}
-                    </Text>
-                    <Text
-                      variant="body"
-                      as="p"
-                      className="max-w-prose text-text-secondary"
-                    >
-                      {entry.summary}
-                    </Text>
-                  </div>
-                </div>
+                <ExperienceCard
+                  role={entry.role}
+                  organization={entry.organization}
+                  period={entry.period}
+                  summary={entry.summary}
+                />
               </Reveal>
             </li>
           ))}

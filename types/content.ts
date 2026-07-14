@@ -221,6 +221,7 @@ export interface Profile {
 export interface AboutPageContent {
   hero: HomeSectionContent;
   introduction: HomeSectionContent;
+  philosophy: HomeSectionContent;
   story: HomeSectionContent;
   timeline: HomeSectionContent;
   education: HomeSectionContent;

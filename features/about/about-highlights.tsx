@@ -27,10 +27,10 @@ export function AboutHighlights({
           />
         </Reveal>
 
-        <Grid as="ul" columns={3} gap="lg">
+        <Grid as="ul" columns={4} gap="lg">
           {highlights.map((stat, index) => (
             <li key={stat.id}>
-              <Reveal delay={index * 0.04}>
+              <Reveal delay={index * 0.05}>
                 <StatCard value={stat.value} label={stat.label} />
               </Reveal>
             </li>

@@ -18,7 +18,7 @@ export function AboutSkills({ skills, content }: AboutSkillsProps) {
       <div className="flex flex-col gap-12 md:gap-16">
         <Reveal>
           <SectionHeading
-            eyebrow="Disciplines"
+            eyebrow="Skills"
             title={content.headline}
             titleId="about-skills-heading"
             supporting={content.supporting}

@@ -1,30 +1,30 @@
 {
   "name": "Rodge Andru P. Viloria",
-  "shortBio": "Artist and designer working across digital illustration, graphic design, and poster composition.",
-  "fullBiography": "Rodge Andru builds visual work with an editorial sensibility — fewer pieces, clearer intention, and careful presentation. The studio treats every image as an exhibition object: proportioned, paced, and left with room to breathe.",
-  "introduction": "The work comes first. The person behind it stays present but quiet — offering context without turning the exhibition into a résumé.",
+  "shortBio": "Artist and designer working across digital illustration, graphic design, and poster composition — with an editorial eye for restraint, proportion, and quiet impact.",
+  "fullBiography": "The practice began in formal visual communication study and matured through independent work. Early assignments taught structure; later years taught judgment — which images deserve public space, and which should stay private. Today the studio operates as a curated exhibition: fewer pieces, clearer intention, and presentation paced like rooms in a gallery. Each work is finished with the same questions: does the composition hold at a distance, does the type earn its place, and does the silence around the image feel intentional.",
+  "introduction": "The work comes first. Context follows only when it deepens understanding — never when it turns the exhibition into a résumé. Visitors meet a practice shaped by editorial sensibility: careful pacing, measured hierarchy, and respect for the original image.",
   "philosophy": "Images should hold attention without noise. Composition leads; decoration follows only when it earns its place. Each piece is paced like a room in a gallery: clear entry, intentional pause, and space to leave.",
   "location": "Philippines",
   "skills": [
     {
       "id": "digital-illustration",
       "label": "Digital Illustration",
-      "description": "Narrative images built for mood, character, and quiet detail."
+      "description": "Narrative images built for mood, character, and quiet detail — composed to hold attention without spectacle."
     },
     {
       "id": "graphic-design",
       "label": "Graphic Design",
-      "description": "Visual systems where type, space, and hierarchy do the work."
+      "description": "Visual systems where type, space, and hierarchy do the work. Clarity over ornament."
     },
     {
       "id": "poster-design",
       "label": "Poster Design",
-      "description": "Single-frame compositions meant to hold attention from a distance."
+      "description": "Single-frame compositions meant to hold attention from a distance — horizon, mark, and type in measured balance."
     },
     {
       "id": "anime",
       "label": "Anime",
-      "description": "Stylized figure work informed by pacing, gesture, and line."
+      "description": "Stylized figure work informed by pacing, gesture, and line — atmospheric rather than crowded."
     }
   ],
   "tools": [
@@ -41,22 +41,28 @@
       "description": "Began formal study in visual communication, grounding daily practice in drawing, composition, and typography."
     },
     {
+      "id": "discipline",
+      "year": "2020",
+      "title": "Craft discipline",
+      "description": "Shifted from assignment volume to deliberate iteration — fewer studies, stronger finishes, clearer visual judgment."
+    },
+    {
       "id": "practice",
       "year": "2021",
       "title": "Independent practice",
-      "description": "Shifted from assignment-driven work to a curated body of illustration and poster studies."
+      "description": "Moved from assignment-driven work to a curated body of illustration and poster studies under Reshz Studio."
     },
     {
       "id": "studio",
       "year": "2024",
       "title": "Studio focus",
-      "description": "Refined the exhibition approach — fewer pieces, clearer intention, and careful presentation."
+      "description": "Refined the exhibition approach — fewer pieces, clearer intention, and careful presentation across print and screen."
     },
     {
       "id": "exhibition",
       "year": "2026",
       "title": "Public exhibition",
-      "description": "Opened this site as a living archive of selected creative work."
+      "description": "Opened this site as a living archive of selected creative work — a digital gallery rather than a catalogue dump."
     }
   ],
   "education": [
@@ -65,7 +71,7 @@
       "institution": "Visual Communication Studies",
       "credential": "Bachelor of Arts",
       "period": "2018 — 2022",
-      "description": "Emphasis on composition, typography, and image-making for print and screen."
+      "description": "Emphasis on composition, typography, and image-making for print and screen. Formal study that became the foundation for independent studio practice."
     }
   ],
   "experience": [
@@ -74,7 +80,14 @@
       "role": "Independent Artist & Designer",
       "organization": "Reshz Studio",
       "period": "2021 — Present",
-      "summary": "Produces digital illustration, graphic design, and poster work with an editorial, exhibition-first approach."
+      "summary": "Produces digital illustration, graphic design, and poster work with an editorial, exhibition-first approach. Responsible for concept, composition, finish, and presentation across selected pieces."
+    },
+    {
+      "id": "visual-studies",
+      "role": "Visual Communication Practice",
+      "organization": "Academic & Independent Studies",
+      "period": "2018 — 2021",
+      "summary": "Developed foundational skills in drawing, typography, and layout through formal coursework and self-directed poster and illustration studies that later informed the studio archive."
     }
   ],
   "values": [
@@ -103,12 +116,12 @@
     {
       "id": "drawing",
       "label": "Drawing",
-      "detail": "Sketchbooks remain the quietest part of the practice."
+      "detail": "Sketchbooks remain the quietest part of the practice — where ideas arrive without pressure to publish."
     },
     {
       "id": "music",
       "label": "Music",
-      "detail": "Long work sessions usually begin with the same short playlist."
+      "detail": "Long work sessions usually begin with the same short playlist. Rhythm sets the pace of the composition pass."
     },
     {
       "id": "coffee",
@@ -118,7 +131,7 @@
     {
       "id": "books",
       "label": "Books",
-      "detail": "Editorial layouts and museum catalogues are frequent references."
+      "detail": "Editorial layouts and museum catalogues are frequent references for spacing, hierarchy, and silence."
     }
   ],
   "highlights": [
@@ -128,17 +141,22 @@
       "label": "Disciplines in practice"
     },
     {
-      "id": "focus",
-      "value": "1",
-      "label": "Curated exhibition focus"
+      "id": "years",
+      "value": "8+",
+      "label": "Years of visual craft"
     },
     {
       "id": "tools",
       "value": "4",
-      "label": "Primary tools"
+      "label": "Primary studio tools"
+    },
+    {
+      "id": "focus",
+      "value": "1",
+      "label": "Curated exhibition focus"
     }
   ],
   "socialLinks": [],
   "email": "hello@reshzystudio.com",
-  "currentFocus": "Curating a focused exhibition of illustration and poster work."
+  "currentFocus": "Curating a focused exhibition of illustration and poster work — and refining how each piece is seen."
 }

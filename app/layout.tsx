@@ -1,6 +1,6 @@
 import type { Viewport } from "next";
 import { ThemeProvider, ThemeScript } from "@/features/theme";
-import { loadSiteConfiguration } from "@/lib/content";
+import { loadProfile, loadSiteConfiguration } from "@/lib/content";
 import {
   buildSiteMetadata,
   buildSiteStructuredData,
@@ -10,7 +10,8 @@ import { fontVariables } from "@/lib/fonts";
 import "./globals.css";
 
 const siteConfig = loadSiteConfiguration();
-const structuredData = buildSiteStructuredData(siteConfig);
+const profile = loadProfile();
+const structuredData = buildSiteStructuredData(siteConfig, profile);
 
 export const metadata = buildSiteMetadata(siteConfig);
 

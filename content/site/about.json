@@ -1,35 +1,39 @@
 {
   "hero": {
-    "headline": "The person behind the work",
-    "supporting": "A quiet introduction — perspective first, credentials second."
+    "headline": "Artist · Designer · Studio",
+    "supporting": "A professional profile told as a career story — perspective first, practice second, credentials in context."
   },
   "introduction": {
-    "headline": "Introduction",
-    "supporting": "Meet the studio behind the exhibition."
+    "headline": "Professional summary",
+    "supporting": "Who stands behind the exhibition, and how the work is approached."
+  },
+  "philosophy": {
+    "headline": "Creative philosophy",
+    "supporting": "Why create, why design, and why the work looks the way it does."
   },
   "story": {
-    "headline": "Perspective",
-    "supporting": "Why the work looks the way it does."
+    "headline": "Personal journey",
+    "supporting": "How formal study became independent practice — and then a public exhibition."
   },
   "timeline": {
-    "headline": "Journey",
-    "supporting": "Milestones that shaped the practice."
+    "headline": "Career timeline",
+    "supporting": "Milestones that shaped judgment, craft, and studio focus."
   },
   "education": {
     "headline": "Education",
     "supporting": "Where formal study met daily craft."
   },
   "experience": {
-    "headline": "Practice",
-    "supporting": "How the work is made day to day."
+    "headline": "Experience",
+    "supporting": "Roles and practice that define the day-to-day work."
   },
   "skills": {
-    "headline": "Disciplines",
-    "supporting": "The areas that define the archive."
+    "headline": "Skills",
+    "supporting": "Disciplines that define the archive — shown as craft, not skill bars."
   },
   "technologies": {
-    "headline": "Tools",
-    "supporting": "Software used in the studio — shown plainly, without skill bars."
+    "headline": "Tools & technologies",
+    "supporting": "Software used in the studio — shown plainly, without meters or ranks."
   },
   "values": {
     "headline": "Values",
@@ -37,11 +41,11 @@
   },
   "funFacts": {
     "headline": "Notes",
-    "supporting": "Small details that stay outside the résumé."
+    "supporting": "Small details that stay outside the professional summary."
   },
   "highlights": {
-    "headline": "At a glance",
-    "supporting": "A short measure of the current focus."
+    "headline": "Career highlights",
+    "supporting": "A short measure of the current practice."
   },
   "cta": {
     "headline": "Start a conversation",

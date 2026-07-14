@@ -41,6 +41,12 @@ export type { ProcessTimelineProps } from "./process-timeline";
 export { SkillCard } from "./skill-card";
 export type { SkillCardProps } from "./skill-card";
 
+export { ExperienceCard } from "./experience-card";
+export type { ExperienceCardProps } from "./experience-card";
+
+export { EducationCard } from "./education-card";
+export type { EducationCardProps } from "./education-card";
+
 export { TechBadge } from "./tech-badge";
 export type { TechBadgeProps } from "./tech-badge";
 

@@ -16,11 +16,15 @@ export function AboutTechnologies({
   }
 
   return (
-    <Section aria-labelledby="about-technologies-heading" width="prose">
+    <Section
+      aria-labelledby="about-technologies-heading"
+      width="prose"
+      className="border-y border-border-subtle bg-surface-primary"
+    >
       <div className="flex flex-col gap-12">
         <Reveal>
           <SectionHeading
-            eyebrow="Tools"
+            eyebrow="Studio"
             title={content.headline}
             titleId="about-technologies-heading"
             supporting={content.supporting}
@@ -28,7 +32,10 @@ export function AboutTechnologies({
         </Reveal>
 
         <Reveal delay={0.06}>
-          <ul className="flex flex-wrap gap-3" aria-label="Studio tools">
+          <ul
+            className="flex flex-wrap gap-3"
+            aria-label="Tools and technologies"
+          >
             {tools.map((tool) => (
               <li key={tool}>
                 <TechBadge label={tool} />

@@ -4,6 +4,9 @@ export type { AboutHeroProps } from "./about-hero";
 export { AboutIntroduction } from "./about-introduction";
 export type { AboutIntroductionProps } from "./about-introduction";
 
+export { AboutPhilosophy } from "./about-philosophy";
+export type { AboutPhilosophyProps } from "./about-philosophy";
+
 export { AboutStory } from "./about-story";
 export type { AboutStoryProps } from "./about-story";
 
@@ -33,3 +36,6 @@ export type { AboutHighlightsProps } from "./about-highlights";
 
 export { AboutCta } from "./about-cta";
 export type { AboutCtaProps } from "./about-cta";
+
+export { AboutPageExperience } from "./about-page-experience";
+export type { AboutPageExperienceProps } from "./about-page-experience";

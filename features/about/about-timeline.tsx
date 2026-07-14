@@ -17,25 +17,28 @@ export function AboutTimeline({ entries, content }: AboutTimelineProps) {
   }
 
   return (
-    <Section aria-labelledby="about-timeline-heading">
+    <Section
+      aria-labelledby="about-timeline-heading"
+      className="border-y border-border-subtle bg-surface-primary"
+    >
       <div className="flex flex-col gap-12 md:gap-16">
         <Reveal>
           <SectionHeading
-            eyebrow="Journey"
+            eyebrow="Timeline"
             title={content.headline}
             titleId="about-timeline-heading"
             supporting={content.supporting}
           />
         </Reveal>
 
-        <Timeline aria-label="Professional journey">
+        <Timeline aria-label="Career timeline">
           {entries.map((entry, index) => (
             <TimelineItem
               key={entry.id}
               year={entry.year}
               title={entry.title}
               description={entry.description}
-              delay={index * 0.04}
+              delay={index * 0.05}
             />
           ))}
         </Timeline>

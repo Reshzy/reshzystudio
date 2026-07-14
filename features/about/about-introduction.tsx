@@ -11,25 +11,46 @@ export function AboutIntroduction({
   profile,
   content,
 }: AboutIntroductionProps) {
-  const body = profile.introduction ?? profile.shortBio;
+  const paragraphs = [
+    profile.shortBio,
+    profile.introduction,
+  ].filter((value): value is string => Boolean(value));
 
   return (
     <Section aria-labelledby="about-introduction-heading" width="prose">
       <Reveal>
         <div className="flex flex-col gap-8">
           <SectionHeading
-            eyebrow="Introduction"
+            eyebrow="Summary"
             title={content.headline}
             titleId="about-introduction-heading"
             supporting={content.supporting}
           />
-          <Text variant="body" as="p" className="text-text-secondary">
-            {body}
-          </Text>
+          <div className="flex flex-col gap-6">
+            {paragraphs.map((paragraph) => (
+              <Text
+                key={paragraph.slice(0, 32)}
+                variant="body"
+                as="p"
+                className="text-text-secondary"
+              >
+                {paragraph}
+              </Text>
+            ))}
+          </div>
           {profile.currentFocus ? (
-            <Text variant="caption" as="p">
-              Current focus — {profile.currentFocus}
-            </Text>
+            <div className="border-t border-border-subtle pt-6">
+              <Text variant="metadata" as="p">
+                Current focus
+              </Text>
+              <Text
+                variant="body"
+                as="p"
+                className="mt-3 max-w-prose text-text-primary"
+              >
+                {profile.currentFocus}
+              </Text>
+            </div>
           ) : null}
         </div>
       </Reveal>

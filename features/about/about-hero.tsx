@@ -1,4 +1,4 @@
-import { Reveal, Section, Text } from "@/design-system/primitives";
+import { FadeIn, Section, Text } from "@/design-system/primitives";
 import type { AboutPageContent, Profile } from "@/types/content";
 
 export interface AboutHeroProps {
@@ -15,13 +15,13 @@ export function AboutHero({ profile, content }: AboutHeroProps) {
       className="pb-8 md:pb-12 lg:pb-16"
     >
       <div className="flex flex-col gap-8">
-        <Reveal>
+        <FadeIn>
           <Text variant="metadata" as="p">
-            Story
+            Profile
           </Text>
-        </Reveal>
+        </FadeIn>
 
-        <Reveal delay={0.06}>
+        <FadeIn delay={0.08}>
           <Text
             variant="display"
             as="h1"
@@ -30,9 +30,9 @@ export function AboutHero({ profile, content }: AboutHeroProps) {
           >
             {profile.name}
           </Text>
-        </Reveal>
+        </FadeIn>
 
-        <Reveal delay={0.12}>
+        <FadeIn delay={0.16}>
           <div className="flex max-w-md flex-col gap-4">
             <Text variant="subheading" as="p" className="text-text-primary">
               {content.headline}
@@ -44,11 +44,11 @@ export function AboutHero({ profile, content }: AboutHeroProps) {
             ) : null}
             {profile.location ? (
               <Text variant="metadata" as="p">
-                {profile.location}
+                Based in {profile.location}
               </Text>
             ) : null}
           </div>
-        </Reveal>
+        </FadeIn>
       </div>
     </Section>
   );

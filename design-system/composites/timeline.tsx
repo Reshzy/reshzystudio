@@ -51,7 +51,11 @@ export function TimelineItem({
     >
       <Reveal delay={delay}>
         <div className="grid gap-4 md:grid-cols-12 md:gap-8">
-          <div className="md:col-span-2">
+          <div className="flex items-start gap-3 md:col-span-2">
+            <span
+              aria-hidden="true"
+              className="mt-1.5 size-2 shrink-0 rounded-full bg-accent-primary"
+            />
             <time
               dateTime={year}
               className="font-sans text-metadata uppercase tabular-nums text-text-muted"
