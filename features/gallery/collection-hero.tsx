@@ -1,4 +1,5 @@
-import { Reveal, Section, Text } from "@/design-system/primitives";
+import { HeroEntrance, Reveal, Section, Text } from "@/design-system/primitives";
+import { staggerDelay } from "@/lib/animation";
 import type { CollectionPageContent } from "@/types/content";
 
 export interface CollectionHeroProps {
@@ -20,7 +21,7 @@ export function CollectionHero({ content, totalCount }: CollectionHeroProps) {
           </Text>
         </Reveal>
 
-        <Reveal delay={0.06}>
+        <HeroEntrance delay={staggerDelay(1, "relaxed")}>
           <Text
             variant="display"
             as="h1"
@@ -29,9 +30,9 @@ export function CollectionHero({ content, totalCount }: CollectionHeroProps) {
           >
             {content.headline}
           </Text>
-        </Reveal>
+        </HeroEntrance>
 
-        <Reveal delay={0.12}>
+        <Reveal delay={staggerDelay(2, "relaxed")}>
           <div className="flex max-w-xl flex-col gap-4">
             {content.supporting ? (
               <Text variant="body" as="p" className="text-text-secondary">

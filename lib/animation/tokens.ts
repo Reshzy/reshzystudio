@@ -20,3 +20,12 @@ export const ease = {
 };
 
 export type EaseToken = keyof typeof ease;
+
+/** Default stagger between sequential reveals (seconds). */
+export const stagger = {
+  tight: 0.03,
+  default: 0.05,
+  relaxed: 0.08,
+} as const;
+
+export type StaggerToken = keyof typeof stagger;

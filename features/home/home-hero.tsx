@@ -2,9 +2,11 @@ import Image from "next/image";
 import {
   ButtonLink,
   Container,
+  HeroEntrance,
   Reveal,
   Text,
 } from "@/design-system/primitives";
+import { staggerDelay } from "@/lib/animation";
 import type { ArtworkPreviewModel } from "@/lib/content";
 import type { HomeHeroContent } from "@/types/content";
 
@@ -26,13 +28,13 @@ export function HomeHero({
     >
       <div className="flex flex-1 flex-col justify-center py-16 lg:w-1/2 lg:py-24">
         <Container className="flex flex-col gap-8 lg:pr-12">
-          <Reveal>
+          <HeroEntrance delay={staggerDelay(0, "relaxed")}>
             <Text variant="metadata" as="p">
               Exhibition
             </Text>
-          </Reveal>
+          </HeroEntrance>
 
-          <Reveal delay={0.06}>
+          <HeroEntrance delay={staggerDelay(1, "relaxed")}>
             <Text
               variant="display"
               as="p"
@@ -40,9 +42,9 @@ export function HomeHero({
             >
               {siteName}
             </Text>
-          </Reveal>
+          </HeroEntrance>
 
-          <Reveal delay={0.12}>
+          <HeroEntrance delay={staggerDelay(2, "relaxed")}>
             <div className="flex max-w-md flex-col gap-4">
               <Text
                 variant="subheading"
@@ -56,30 +58,33 @@ export function HomeHero({
                 {content.supporting}
               </Text>
             </div>
-          </Reveal>
+          </HeroEntrance>
 
-          <Reveal delay={0.18}>
+          <HeroEntrance delay={staggerDelay(3, "relaxed")}>
             <div>
               <ButtonLink href={content.cta.href}>
                 {content.cta.label}
               </ButtonLink>
             </div>
-          </Reveal>
+          </HeroEntrance>
         </Container>
       </div>
 
       {featuredArtwork ? (
-        <div className="relative min-h-[50svh] w-full overflow-hidden bg-surface-secondary lg:min-h-0 lg:w-1/2">
+        <HeroEntrance
+          delay={staggerDelay(1, "relaxed")}
+          className="relative min-h-[50svh] w-full overflow-hidden bg-surface-secondary lg:min-h-0 lg:w-1/2"
+        >
           <Image
             src={featuredArtwork.coverSrc}
             alt={featuredArtwork.title}
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
+            className="object-cover transition-transform duration-hero ease-enter motion-safe:hover:scale-[1.02]"
             unoptimized={featuredArtwork.coverSrc.endsWith(".svg")}
           />
-        </div>
+        </HeroEntrance>
       ) : null}
     </section>
   );

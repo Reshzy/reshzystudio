@@ -36,15 +36,23 @@ export function NavigationCard({
       )}
       aria-label={`${label} artwork: ${title}`}
     >
-      <div className="relative h-20 w-16 shrink-0 overflow-hidden bg-surface-secondary md:h-24 md:w-20">
+      <div
+        className={cn(
+          "relative h-20 w-16 shrink-0 overflow-hidden bg-surface-secondary",
+          "transition-shadow duration-medium ease-standard",
+          "motion-safe:group-hover:shadow-md",
+          "md:h-24 md:w-20",
+        )}
+      >
         <Image
           src={coverSrc}
           alt=""
           fill
           sizes="80px"
           className={cn(
-            "object-cover transition-transform duration-large ease-standard",
+            "object-cover transition-[transform,filter] duration-large ease-standard",
             "motion-safe:group-hover:scale-[1.03]",
+            "motion-safe:group-hover:brightness-[1.03]",
           )}
           unoptimized={coverSrc.endsWith(".svg")}
         />

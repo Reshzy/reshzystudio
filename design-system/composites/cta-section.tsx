@@ -1,5 +1,6 @@
 import {
   ButtonLink,
+  FadeIn,
   Reveal,
   Section,
   Text,
@@ -41,9 +42,11 @@ export function CTASection({
             </Text>
           ) : null}
           {cta ? (
-            <div>
-              <ButtonLink href={cta.href}>{cta.label}</ButtonLink>
-            </div>
+            <FadeIn delay={0.08}>
+              <div>
+                <ButtonLink href={cta.href}>{cta.label}</ButtonLink>
+              </div>
+            </FadeIn>
           ) : null}
         </div>
       </Reveal>

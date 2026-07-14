@@ -52,9 +52,19 @@ export function ArtworkCard({
         className,
       )}
     >
-      <figure className={cn("flex flex-col", sizeStyles[variant])}>
+      <figure
+        className={cn(
+          "flex flex-col transition-transform duration-medium ease-standard",
+          "motion-safe:group-hover:-translate-y-0.5",
+          sizeStyles[variant],
+        )}
+      >
         <div
-          className="relative overflow-hidden bg-surface-secondary"
+          className={cn(
+            "relative overflow-hidden bg-surface-secondary",
+            "transition-shadow duration-medium ease-standard",
+            "motion-safe:group-hover:shadow-md",
+          )}
           style={{ aspectRatio: artwork.aspectRatio }}
         >
           <Image
@@ -64,13 +74,19 @@ export function ArtworkCard({
             sizes={imageSizes[variant]}
             priority={priority}
             className={cn(
-              "object-cover transition-transform duration-large ease-standard",
-              "motion-safe:group-hover:scale-[1.02]",
+              "object-cover transition-[transform,filter] duration-large ease-standard",
+              "motion-safe:group-hover:scale-[1.03]",
+              "motion-safe:group-hover:brightness-[1.03]",
             )}
             unoptimized={artwork.coverSrc.endsWith(".svg")}
           />
         </div>
-        <figcaption className="flex flex-col gap-1">
+        <figcaption
+          className={cn(
+            "flex flex-col gap-1 transition-opacity duration-small ease-standard",
+            "opacity-90 group-hover:opacity-100 group-focus-visible:opacity-100",
+          )}
+        >
           <Text
             variant={titleVariant[variant]}
             as={headingLevel}

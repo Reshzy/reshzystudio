@@ -1,3 +1,4 @@
+import { FadeIn } from "@/design-system/primitives/motion/fade-in";
 import { Text } from "@/design-system/primitives/typography/text";
 import { cn } from "@/design-system/shared";
 
@@ -25,28 +26,34 @@ export function FormStatus({
   titleId,
 }: FormStatusProps) {
   return (
-    <div
-      role="status"
-      aria-live="polite"
-      className={cn(
-        "flex flex-col gap-3 border px-6 py-8 md:px-8 md:py-10",
-        toneStyles[tone],
-        className,
-      )}
-    >
-      <Text
-        variant="subheading"
-        as="h3"
-        id={titleId}
-        className="text-text-primary"
+    <FadeIn>
+      <div
+        role="status"
+        aria-live="polite"
+        className={cn(
+          "flex flex-col gap-3 border px-6 py-8 md:px-8 md:py-10",
+          toneStyles[tone],
+          className,
+        )}
       >
-        {title}
-      </Text>
-      {body ? (
-        <Text variant="body" as="p" className="max-w-prose text-text-secondary">
-          {body}
+        <Text
+          variant="subheading"
+          as="h3"
+          id={titleId}
+          className="text-text-primary"
+        >
+          {title}
         </Text>
-      ) : null}
-    </div>
+        {body ? (
+          <Text
+            variant="body"
+            as="p"
+            className="max-w-prose text-text-secondary"
+          >
+            {body}
+          </Text>
+        ) : null}
+      </div>
+    </FadeIn>
   );
 }

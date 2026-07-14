@@ -21,6 +21,16 @@ export const smallTransition: Transition = {
   ease: ease.standard,
 };
 
+export const heroTransition: Transition = {
+  duration: duration.hero,
+  ease: ease.enter,
+};
+
+export const pageTransition: Transition = {
+  duration: duration.medium,
+  ease: ease.enter,
+};
+
 export const fadeVariants: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
@@ -31,7 +41,22 @@ export const revealVariants: Variants = {
   visible: { opacity: 1, y: 0 },
 };
 
+export const heroVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export const pageVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
 export const reducedMotionVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
+export const reducedMotionRevealVariants: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
 };

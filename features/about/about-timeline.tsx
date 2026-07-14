@@ -4,6 +4,7 @@ import {
   TimelineItem,
 } from "@/design-system/composites";
 import { Reveal, Section } from "@/design-system/primitives";
+import { staggerDelay } from "@/lib/animation";
 import type { AboutPageContent, TimelineEntry } from "@/types/content";
 
 export interface AboutTimelineProps {
@@ -38,7 +39,7 @@ export function AboutTimeline({ entries, content }: AboutTimelineProps) {
               year={entry.year}
               title={entry.title}
               description={entry.description}
-              delay={index * 0.05}
+              delay={staggerDelay(index, "default")}
             />
           ))}
         </Timeline>

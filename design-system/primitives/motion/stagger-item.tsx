@@ -4,26 +4,34 @@ import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 import {
   microTransition,
-  reducedMotionRevealVariants,
+  reducedMotionVariants,
   revealTransition,
   revealVariants,
+  staggerDelay,
+  type StaggerToken,
 } from "@/lib/animation";
 import { cn } from "@/design-system/shared";
 
-export interface RevealProps {
+export interface StaggerItemProps {
   children: ReactNode;
   className?: string;
-  delay?: number;
+  index?: number;
+  stagger?: StaggerToken;
   once?: boolean;
 }
 
-export function Reveal({
+/**
+ * Scroll reveal with tokenized stagger delay — prefer over ad-hoc delay math.
+ */
+export function StaggerItem({
   children,
   className,
-  delay = 0,
+  index = 0,
+  stagger = "default",
   once = true,
-}: RevealProps) {
+}: StaggerItemProps) {
   const shouldReduceMotion = useReducedMotion();
+  const delay = shouldReduceMotion ? 0 : staggerDelay(index, stagger);
 
   return (
     <motion.div
@@ -32,11 +40,11 @@ export function Reveal({
       whileInView="visible"
       viewport={{ once, amount: 0.2 }}
       variants={
-        shouldReduceMotion ? reducedMotionRevealVariants : revealVariants
+        shouldReduceMotion ? reducedMotionVariants : revealVariants
       }
       transition={
         shouldReduceMotion
-          ? { ...microTransition, delay: 0 }
+          ? microTransition
           : { ...revealTransition, delay }
       }
     >

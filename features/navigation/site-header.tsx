@@ -31,7 +31,8 @@ export function SiteHeader({ siteName, items, className }: SiteHeaderProps) {
           href="/"
           className={cn(
             "font-display text-subheading tracking-tight text-text-primary",
-            "transition-opacity duration-small ease-standard hover:opacity-80",
+            "transition-[opacity,transform] duration-small ease-standard",
+            "hover:opacity-80 motion-safe:active:scale-[0.98]",
             "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
           )}
         >

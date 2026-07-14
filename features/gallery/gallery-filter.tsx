@@ -1,5 +1,6 @@
 import NextLink from "next/link";
 import { cn } from "@/design-system/shared";
+import { interactiveChip } from "@/lib/animation";
 import type { GalleryCategory } from "@/lib/content";
 
 export interface GalleryFilterProps {
@@ -37,7 +38,7 @@ export function GalleryFilter({
       </nav>
 
       <p
-        className="font-sans text-caption text-text-muted"
+        className="font-sans text-caption text-text-muted transition-opacity duration-small ease-standard"
         aria-live="polite"
       >
         Showing{" "}
@@ -65,11 +66,12 @@ function FilterChip({ href, label, active }: FilterChipProps) {
       aria-current={active ? "true" : undefined}
       className={cn(
         "inline-flex items-center rounded-md px-4 py-2 text-caption font-medium",
-        "border transition-colors duration-small ease-standard",
+        "border",
+        interactiveChip,
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
         active
           ? "border-accent-primary bg-accent-primary text-button-primary-foreground"
-          : "border-border-default bg-transparent text-text-secondary hover:border-border-default hover:text-text-primary hover:bg-surface-secondary",
+          : "border-border-default bg-transparent text-text-secondary hover:border-border-default hover:bg-surface-secondary hover:text-text-primary",
       )}
     >
       {label}

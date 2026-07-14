@@ -1,6 +1,7 @@
 import NextLink from "next/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/design-system/shared";
+import { interactiveLink } from "@/lib/animation";
 
 export type LinkVariant = "default" | "subtle" | "accent";
 
@@ -37,7 +38,8 @@ export function Link({
 }: LinkProps) {
   const isExternal = external ?? isExternalHref(href);
   const linkClassName = cn(
-    "inline-flex items-center text-body underline-offset-4 transition-colors duration-small ease-standard hover:underline",
+    "inline-flex items-center text-body",
+    interactiveLink,
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
     variantStyles[variant],
     className,

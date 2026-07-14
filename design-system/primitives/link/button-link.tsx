@@ -1,6 +1,7 @@
 import NextLink from "next/link";
 import type { ReactNode } from "react";
 import { cn } from "@/design-system/shared";
+import { interactivePress } from "@/lib/animation";
 
 export type ButtonLinkVariant = "primary" | "secondary" | "ghost";
 
@@ -31,7 +32,7 @@ export function ButtonLink({
       href={href}
       className={cn(
         "inline-flex items-center justify-center rounded-full px-6 py-3 text-body font-medium",
-        "transition-colors duration-small ease-standard",
+        interactivePress,
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
         variantStyles[variant],
         className,

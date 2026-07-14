@@ -1,4 +1,5 @@
-import { FadeIn, Section, Text } from "@/design-system/primitives";
+import { HeroEntrance, Section, Text } from "@/design-system/primitives";
+import { staggerDelay } from "@/lib/animation";
 import type { AboutPageContent, Profile } from "@/types/content";
 
 export interface AboutHeroProps {
@@ -15,13 +16,13 @@ export function AboutHero({ profile, content }: AboutHeroProps) {
       className="pb-8 md:pb-12 lg:pb-16"
     >
       <div className="flex flex-col gap-8">
-        <FadeIn>
+        <HeroEntrance>
           <Text variant="metadata" as="p">
             Profile
           </Text>
-        </FadeIn>
+        </HeroEntrance>
 
-        <FadeIn delay={0.08}>
+        <HeroEntrance delay={staggerDelay(1, "relaxed")}>
           <Text
             variant="display"
             as="h1"
@@ -30,9 +31,9 @@ export function AboutHero({ profile, content }: AboutHeroProps) {
           >
             {profile.name}
           </Text>
-        </FadeIn>
+        </HeroEntrance>
 
-        <FadeIn delay={0.16}>
+        <HeroEntrance delay={staggerDelay(2, "relaxed")}>
           <div className="flex max-w-md flex-col gap-4">
             <Text variant="subheading" as="p" className="text-text-primary">
               {content.headline}
@@ -48,7 +49,7 @@ export function AboutHero({ profile, content }: AboutHeroProps) {
               </Text>
             ) : null}
           </div>
-        </FadeIn>
+        </HeroEntrance>
       </div>
     </Section>
   );

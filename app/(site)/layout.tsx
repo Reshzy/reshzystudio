@@ -1,4 +1,4 @@
-import { SkipLink } from "@/design-system/primitives";
+import { SkipLink, PageFade } from "@/design-system/primitives";
 import { SiteFooter, SiteHeader } from "@/features/navigation";
 import { loadSiteConfiguration } from "@/lib/content";
 
@@ -17,7 +17,7 @@ export default function SiteLayout({
         items={siteConfig.navigation}
       />
       <main id="main-content" className="flex flex-1 flex-col">
-        {children}
+        <PageFade>{children}</PageFade>
       </main>
       <SiteFooter
         owner={siteConfig.identity.owner}

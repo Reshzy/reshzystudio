@@ -30,6 +30,8 @@ export function Badge({
     <span
       className={cn(
         "inline-flex items-center rounded-full px-3 py-1 text-caption font-medium",
+        "transition-[background-color,color,transform,opacity] duration-small ease-standard",
+        "motion-safe:hover:scale-[1.02]",
         variantStyles[variant],
         className,
       )}

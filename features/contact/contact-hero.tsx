@@ -1,4 +1,5 @@
-import { FadeIn, Reveal, Section, Text } from "@/design-system/primitives";
+import { HeroEntrance, Reveal, Section, Text } from "@/design-system/primitives";
+import { staggerDelay } from "@/lib/animation";
 import type { ContactPageContent } from "@/types/content";
 
 export interface ContactHeroProps {
@@ -20,7 +21,7 @@ export function ContactHero({ content }: ContactHeroProps) {
           </Text>
         </Reveal>
 
-        <FadeIn>
+        <HeroEntrance delay={staggerDelay(1, "relaxed")}>
           <Text
             variant="display"
             as="h1"
@@ -29,10 +30,10 @@ export function ContactHero({ content }: ContactHeroProps) {
           >
             {content.headline}
           </Text>
-        </FadeIn>
+        </HeroEntrance>
 
         {content.supporting ? (
-          <Reveal delay={0.08}>
+          <Reveal delay={staggerDelay(2, "relaxed")}>
             <Text
               variant="body"
               as="p"

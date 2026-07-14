@@ -29,11 +29,12 @@ export function NavLink({ href, children, className, onNavigate }: NavLinkProps)
       onClick={onNavigate}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "text-body transition-colors duration-small ease-standard",
+        "relative text-body transition-colors duration-small ease-standard",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
+        "after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:bg-current after:transition-transform after:duration-small after:ease-standard",
         active
-          ? "font-medium text-text-primary"
-          : "text-text-secondary hover:text-text-primary",
+          ? "font-medium text-text-primary after:scale-x-100"
+          : "text-text-secondary after:scale-x-0 hover:text-text-primary hover:after:scale-x-100",
         className,
       )}
     >

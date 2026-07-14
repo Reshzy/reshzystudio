@@ -3,41 +3,41 @@
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 import {
+  heroTransition,
+  heroVariants,
   microTransition,
-  reducedMotionRevealVariants,
-  revealTransition,
-  revealVariants,
+  reducedMotionVariants,
 } from "@/lib/animation";
 import { cn } from "@/design-system/shared";
 
-export interface RevealProps {
+export interface HeroEntranceProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  once?: boolean;
 }
 
-export function Reveal({
+/**
+ * Primary hero entrance — slightly longer and deeper than section Reveal.
+ */
+export function HeroEntrance({
   children,
   className,
   delay = 0,
-  once = true,
-}: RevealProps) {
+}: HeroEntranceProps) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
       className={cn(className)}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once, amount: 0.2 }}
+      animate="visible"
       variants={
-        shouldReduceMotion ? reducedMotionRevealVariants : revealVariants
+        shouldReduceMotion ? reducedMotionVariants : heroVariants
       }
       transition={
         shouldReduceMotion
           ? { ...microTransition, delay: 0 }
-          : { ...revealTransition, delay }
+          : { ...heroTransition, delay }
       }
     >
       {children}

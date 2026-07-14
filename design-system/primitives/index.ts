@@ -39,3 +39,12 @@ export type { FadeInProps } from "./motion/fade-in";
 
 export { Reveal } from "./motion/reveal";
 export type { RevealProps } from "./motion/reveal";
+
+export { PageFade } from "./motion/page-fade";
+export type { PageFadeProps } from "./motion/page-fade";
+
+export { HeroEntrance } from "./motion/hero-entrance";
+export type { HeroEntranceProps } from "./motion/hero-entrance";
+
+export { StaggerItem } from "./motion/stagger-item";
+export type { StaggerItemProps } from "./motion/stagger-item";

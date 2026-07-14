@@ -8,8 +8,10 @@ import { cn } from "@/design-system/shared";
 import {
   duration,
   ease,
+  interactiveControl,
   microTransition,
   smallTransition,
+  staggerDelay,
 } from "@/lib/animation";
 import type { NavigationItem } from "@/types/content";
 import { NavLink } from "./nav-link";
@@ -56,8 +58,8 @@ export function MobileNav({ items, className }: MobileNavProps) {
         type="button"
         className={cn(
           "inline-flex size-10 items-center justify-center rounded-full",
-          "text-text-primary transition-colors duration-small ease-standard",
-          "hover:bg-surface-secondary",
+          "text-text-primary hover:bg-surface-secondary",
+          interactiveControl,
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
         )}
         aria-expanded={open}
@@ -94,8 +96,8 @@ export function MobileNav({ items, className }: MobileNavProps) {
                 type="button"
                 className={cn(
                   "inline-flex size-10 items-center justify-center rounded-full",
-                  "text-text-primary transition-colors duration-small ease-standard",
-                  "hover:bg-surface-secondary",
+                  "text-text-primary hover:bg-surface-secondary",
+                  interactiveControl,
                   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
                 )}
                 aria-label="Close navigation"
@@ -121,14 +123,14 @@ export function MobileNav({ items, className }: MobileNavProps) {
                       ? microTransition
                       : {
                           ...smallTransition,
-                          delay: index * 0.04,
+                          delay: staggerDelay(index, "tight"),
                         }
                   }
                 >
                   <NavLink
                     href={item.href}
                     onNavigate={() => setOpen(false)}
-                    className="font-display text-heading"
+                    className="font-display text-heading after:hidden"
                   >
                     {item.label}
                   </NavLink>

@@ -1,5 +1,6 @@
 import type { ButtonHTMLAttributes, Ref } from "react";
 import { cn } from "@/design-system/shared";
+import { interactivePress } from "@/lib/animation";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
 
@@ -31,9 +32,10 @@ export function Button({
       type={type}
       className={cn(
         "inline-flex items-center justify-center rounded-full px-6 py-3 text-body font-medium",
-        "transition-colors duration-small ease-standard",
+        interactivePress,
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
-        "disabled:pointer-events-none disabled:opacity-50",
+        "disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none",
+        "motion-safe:disabled:hover:scale-100 motion-safe:disabled:active:scale-100",
         variantStyles[variant],
         className,
       )}
