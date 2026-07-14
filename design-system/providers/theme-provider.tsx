@@ -4,9 +4,8 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import {
@@ -27,7 +26,11 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-const PREFERENCE_ORDER: ThemePreference[] = ["system", "light", "dark"];
+const preferenceListeners = new Set<() => void>();
+
+function emitPreferenceChange() {
+  preferenceListeners.forEach((listener) => listener());
+}
 
 function readStoredPreference(): ThemePreference {
   try {
@@ -42,82 +45,85 @@ function readStoredPreference(): ThemePreference {
   return "system";
 }
 
-function getSystemPrefersDark(): boolean {
-  if (typeof window === "undefined") {
-    return false;
-  }
+function subscribePreference(listener: () => void) {
+  preferenceListeners.add(listener);
 
-  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const onStorage = (event: StorageEvent) => {
+    if (event.key === THEME_STORAGE_KEY || event.key === null) {
+      listener();
+    }
+  };
+
+  window.addEventListener("storage", onStorage);
+
+  return () => {
+    preferenceListeners.delete(listener);
+    window.removeEventListener("storage", onStorage);
+  };
 }
 
-function readInitialPreference(): ThemePreference {
-  if (typeof window === "undefined") {
-    return "system";
-  }
-
+function getPreferenceSnapshot(): ThemePreference {
   return readStoredPreference();
 }
 
-function readInitialResolvedTheme(): ResolvedTheme {
-  if (typeof window === "undefined") {
-    return "light";
+function getPreferenceServerSnapshot(): ThemePreference {
+  return "system";
+}
+
+function subscribeSystemTheme(listener: () => void) {
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  media.addEventListener("change", listener);
+  return () => media.removeEventListener("change", listener);
+}
+
+function getSystemPrefersDarkSnapshot(): boolean {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+function getSystemPrefersDarkServerSnapshot(): boolean {
+  return false;
+}
+
+function persistPreference(next: ThemePreference) {
+  applyThemeAttribute(next);
+
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, next);
+  } catch {
+    // Persistence is best-effort
   }
 
-  return resolveTheme(readStoredPreference(), getSystemPrefersDark());
+  emitPreferenceChange();
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [preference, setPreferenceState] =
-    useState<ThemePreference>(readInitialPreference);
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(
-    readInitialResolvedTheme,
+  const preference = useSyncExternalStore(
+    subscribePreference,
+    getPreferenceSnapshot,
+    getPreferenceServerSnapshot,
   );
 
-  useEffect(() => {
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const systemPrefersDark = useSyncExternalStore(
+    subscribeSystemTheme,
+    getSystemPrefersDarkSnapshot,
+    getSystemPrefersDarkServerSnapshot,
+  );
 
-    const onChange = () => {
-      setPreferenceState((current) => {
-        if (current === "system") {
-          applyThemeAttribute("system");
-          setResolvedTheme(resolveTheme("system", media.matches));
-        }
-        return current;
-      });
-    };
-
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, []);
+  const resolvedTheme: ResolvedTheme = resolveTheme(
+    preference,
+    systemPrefersDark,
+  );
 
   const setPreference = useCallback((next: ThemePreference) => {
-    setPreferenceState(next);
-    setResolvedTheme(resolveTheme(next, getSystemPrefersDark()));
-    applyThemeAttribute(next);
-
-    try {
-      localStorage.setItem(THEME_STORAGE_KEY, next);
-    } catch {
-      // Persistence is best-effort
-    }
+    persistPreference(next);
   }, []);
 
   const cyclePreference = useCallback(() => {
-    setPreferenceState((current) => {
-      const index = PREFERENCE_ORDER.indexOf(current);
-      const next = PREFERENCE_ORDER[(index + 1) % PREFERENCE_ORDER.length]!;
-      setResolvedTheme(resolveTheme(next, getSystemPrefersDark()));
-      applyThemeAttribute(next);
-
-      try {
-        localStorage.setItem(THEME_STORAGE_KEY, next);
-      } catch {
-        // Persistence is best-effort
-      }
-
-      return next;
-    });
-  }, []);
+    // Sun/moon toggle flips resolved appearance. Avoid dark→system when OS is
+    // dark (identical visuals). "system" remains the unset/default preference.
+    const next: ThemePreference = resolvedTheme === "dark" ? "light" : "dark";
+    persistPreference(next);
+  }, [resolvedTheme]);
 
   const value = useMemo(
     () => ({
