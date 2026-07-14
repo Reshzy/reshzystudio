@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ElementType, ReactNode } from "react";
 import { Text } from "@/design-system/primitives/typography/text";
 import { cn } from "@/design-system/shared";
 
@@ -6,6 +6,7 @@ export interface SectionHeadingProps {
   eyebrow?: string;
   title: string;
   titleId?: string;
+  titleAs?: "h1" | "h2";
   supporting?: string;
   actions?: ReactNode;
   className?: string;
@@ -16,11 +17,15 @@ export function SectionHeading({
   eyebrow,
   title,
   titleId,
+  titleAs = "h2",
   supporting,
   actions,
   className,
   align = "start",
 }: SectionHeadingProps) {
+  const titleVariant: "display" | "heading" =
+    titleAs === "h1" ? "display" : "heading";
+
   return (
     <div
       className={cn(
@@ -35,7 +40,7 @@ export function SectionHeading({
             {eyebrow}
           </Text>
         ) : null}
-        <Text variant="heading" as="h2" id={titleId}>
+        <Text variant={titleVariant} as={titleAs as ElementType} id={titleId}>
           {title}
         </Text>
         {supporting ? (

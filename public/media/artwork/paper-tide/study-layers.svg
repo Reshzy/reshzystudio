@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1000" role="img" aria-label="Paper Tide layer study">
+  <rect width="750" height="1000" fill="#f5f5f4"/>
+  <rect x="120" y="220" width="420" height="280" fill="#e7e5e4" opacity="0.9"/>
+  <rect x="180" y="300" width="420" height="280" fill="#d6d3d1" opacity="0.85"/>
+  <rect x="240" y="380" width="420" height="280" fill="#a8a29e" opacity="0.7"/>
+  <text x="64" y="920" fill="#78716c" font-family="system-ui, sans-serif" font-size="14" letter-spacing="0.2em">LAYER STUDY</text>
+</svg>

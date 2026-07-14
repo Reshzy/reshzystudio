@@ -4,20 +4,51 @@
   "title": "Paper Tide",
   "summary": "A digital illustration of layered paper planes and soft light — movement held in a quiet register.",
   "fullDescription": "Paper Tide treats layers as weather. Soft planes overlap without collision, suggesting motion through alignment and tonal shift rather than dramatic contrast.",
+  "narrative": "The illustration began with the feeling of pages turning slowly — motion you notice only after you have already paused.",
+  "story": {
+    "idea": "Suggest current and drift using layered planes instead of literal water or wind.",
+    "inspiration": "Stacked paper on a drafting table, translucent envelopes, and late-afternoon studio light.",
+    "process": "Built the image as overlapping veils, adjusting opacity until movement appeared without aggression.",
+    "processSteps": [
+      {
+        "id": "pt-1",
+        "title": "Layer studies",
+        "description": "Arranged translucent planes to find a rhythm that felt like tide rather than stack."
+      },
+      {
+        "id": "pt-2",
+        "title": "Light tuning",
+        "description": "Softened edges and tonal steps so motion read as atmosphere, not outline."
+      },
+      {
+        "id": "pt-3",
+        "title": "Final hush",
+        "description": "Reduced contrast until the illustration held a quiet, continuous drift."
+      }
+    ],
+    "challenges": "Keeping the layers readable without flattening into decoration or rising into noise.",
+    "reflection": "Movement can be gentle and still decisive when every plane has a reason to exist."
+  },
   "creative": {
     "medium": "Digital illustration",
     "category": "Digital Illustration",
     "collectionSlug": "selected-work",
     "yearCreated": 2026,
-    "status": "published"
+    "status": "published",
+    "duration": "4 weeks",
+    "role": "Illustration, color study"
   },
   "media": {
     "cover": "/media/artwork/paper-tide/cover.svg",
-    "gallery": ["/media/artwork/paper-tide/cover.svg"],
+    "gallery": [
+      "/media/artwork/paper-tide/study-layers.svg",
+      "/media/artwork/paper-tide/study-light.svg"
+    ],
     "thumbnail": "/media/artwork/paper-tide/cover.svg"
   },
   "technical": {
     "software": ["Procreate", "Adobe Photoshop"],
+    "dimensions": "2400 × 3200 px",
     "aspectRatio": "3 / 4",
     "colorPalette": ["#f5f5f4", "#a8a29e", "#8b7355", "#292524"]
   },

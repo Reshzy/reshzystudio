@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { ArtworkTeaser } from "@/design-system/composites";
-import { Section, Text } from "@/design-system/primitives";
+import {
+  ArtworkCard,
+  ArtworkGrid,
+  ArtworkGridItem,
+  EmptyState,
+  SectionHeading,
+} from "@/design-system/composites";
+import { Reveal, Section } from "@/design-system/primitives";
 import {
   loadAllArtwork,
   loadSiteConfiguration,
@@ -23,25 +29,39 @@ export default function ArtworkIndexPage() {
   const artworks = loadAllArtwork().map(toArtworkPreview);
 
   return (
-    <Section>
+    <Section aria-labelledby="artwork-index-heading">
       <div className="flex flex-col gap-12 md:gap-16">
-        <div className="flex max-w-xl flex-col gap-3">
-          <Text variant="metadata" as="p">
-            Archive
-          </Text>
-          <Text variant="heading" as="h1">
-            Artwork
-          </Text>
-          <Text variant="body" as="p" className="text-text-secondary">
-            Selected pieces from the current exhibition.
-          </Text>
-        </div>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Archive"
+            title="Artwork"
+            titleId="artwork-index-heading"
+            titleAs="h1"
+            supporting="Selected pieces from the current exhibition."
+          />
+        </Reveal>
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {artworks.map((artwork) => (
-            <ArtworkTeaser key={artwork.id} artwork={artwork} />
-          ))}
-        </div>
+        {artworks.length === 0 ? (
+          <EmptyState
+            title="No artwork on view"
+            description="The archive will fill as work is published to the exhibition."
+            action={{ label: "Explore Collection", href: "/collection" }}
+          />
+        ) : (
+          <ArtworkGrid>
+            {artworks.map((artwork, index) => (
+              <ArtworkGridItem key={artwork.id}>
+                <Reveal delay={Math.min(index * 0.04, 0.24)}>
+                  <ArtworkCard
+                    artwork={artwork}
+                    variant="standard"
+                    priority={index < 3}
+                  />
+                </Reveal>
+              </ArtworkGridItem>
+            ))}
+          </ArtworkGrid>
+        )}
       </div>
     </Section>
   );

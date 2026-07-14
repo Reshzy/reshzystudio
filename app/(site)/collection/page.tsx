@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
-import { ArtworkTeaser } from "@/design-system/composites";
-import { Section, Text } from "@/design-system/primitives";
 import {
+  CollectionArchive,
+  CollectionCategories,
+  CollectionFeatured,
+  CollectionHero,
+  CollectionTechnologies,
+} from "@/features/gallery";
+import {
+  collectGalleryCategories,
+  collectGalleryTechnologies,
+  filterArtworkByCategory,
   loadAllArtwork,
-  loadAllCollections,
+  loadCollectionContent,
+  loadFeaturedArtwork,
   loadSiteConfiguration,
+  resolveCategoryParam,
   toArtworkPreview,
 } from "@/lib/content";
 import { buildSiteMetadata } from "@/lib/metadata";
@@ -20,33 +30,58 @@ export const metadata: Metadata = buildSiteMetadata(siteConfig, {
   },
 });
 
-export default function CollectionPage() {
-  const collections = loadAllCollections();
-  const primary = collections[0];
-  const artworks = loadAllArtwork().map(toArtworkPreview);
+interface CollectionPageProps {
+  searchParams: Promise<{ category?: string | string[] }>;
+}
+
+export default async function CollectionPage({
+  searchParams,
+}: CollectionPageProps) {
+  const params = await searchParams;
+  const activeCategory = resolveCategoryParam(params.category);
+  const content = loadCollectionContent();
+
+  const allArtworks = loadAllArtwork().map(toArtworkPreview);
+  const featuredArtworks = loadFeaturedArtwork().map(toArtworkPreview);
+  const categories = collectGalleryCategories(allArtworks);
+  const technologies = collectGalleryTechnologies(allArtworks);
+
+  const validCategory =
+    activeCategory &&
+    categories.some((category) => category.slug === activeCategory)
+      ? activeCategory
+      : undefined;
+
+  const archiveArtworks = filterArtworkByCategory(
+    allArtworks,
+    validCategory,
+  );
 
   return (
-    <Section>
-      <div className="flex flex-col gap-12 md:gap-16">
-        <div className="flex max-w-xl flex-col gap-3">
-          <Text variant="metadata" as="p">
-            Collection
-          </Text>
-          <Text variant="heading" as="h1">
-            {primary?.title ?? "Collection"}
-          </Text>
-          <Text variant="body" as="p" className="text-text-secondary">
-            {primary?.description ??
-              "A curated exhibition of selected creative work."}
-          </Text>
-        </div>
-
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {artworks.map((artwork) => (
-            <ArtworkTeaser key={artwork.id} artwork={artwork} />
-          ))}
-        </div>
-      </div>
-    </Section>
+    <div className="flex flex-1 flex-col">
+      <CollectionHero
+        content={content.hero}
+        totalCount={allArtworks.length}
+      />
+      <CollectionFeatured
+        artworks={featuredArtworks}
+        content={content.featured}
+      />
+      <CollectionCategories
+        categories={categories}
+        content={content.categories}
+        activeCategory={validCategory}
+      />
+      <CollectionArchive
+        artworks={archiveArtworks}
+        categories={categories}
+        content={content.archive}
+        activeCategory={validCategory}
+      />
+      <CollectionTechnologies
+        technologies={technologies}
+        content={content.technologies}
+      />
+    </div>
   );
 }

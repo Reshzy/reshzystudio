@@ -1,4 +1,4 @@
-import type { SiteConfiguration } from "@/types/content";
+import type { Artwork, SiteConfiguration } from "@/types/content";
 import { getSiteUrl } from "@/lib/env";
 
 export interface JsonLdGraph {
@@ -39,6 +39,43 @@ export function buildSiteStructuredData(
   return {
     "@context": "https://schema.org",
     "@graph": [person, website],
+  };
+}
+
+export function buildArtworkStructuredData(
+  artwork: Artwork,
+  config: SiteConfiguration,
+): JsonLdGraph {
+  const siteUrl = getSiteUrl();
+  const path = artwork.metadata.seo.canonicalPath ?? `/artwork/${artwork.slug}`;
+  const image = artwork.metadata.seo.socialImage ?? artwork.media.cover;
+
+  const creativeWork: Record<string, unknown> = {
+    "@type": "CreativeWork",
+    "@id": `${siteUrl}${path}#creativework`,
+    name: artwork.title,
+    description: artwork.metadata.seo.metaDescription ?? artwork.summary,
+    url: `${siteUrl}${path}`,
+    image: image.startsWith("http") ? image : `${siteUrl}${image}`,
+    dateCreated: String(artwork.creative.yearCreated),
+    genre: artwork.creative.category,
+    artMedium: artwork.creative.medium,
+    keywords: artwork.tags.join(", "),
+    creator: { "@id": `${siteUrl}/#person` },
+    author: { "@id": `${siteUrl}/#person` },
+    isPartOf: { "@id": `${siteUrl}/#website` },
+  };
+
+  if (artwork.technical?.software?.length) {
+    creativeWork.instrument = artwork.technical.software;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      ...buildSiteStructuredData(config)["@graph"],
+      creativeWork,
+    ],
   };
 }
 

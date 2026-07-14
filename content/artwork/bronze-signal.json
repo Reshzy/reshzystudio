@@ -4,20 +4,51 @@
   "title": "Bronze Signal",
   "summary": "A graphic composition using a single accent mark against a deep neutral field — signal without noise.",
   "fullDescription": "Bronze Signal is a study in emphasis. One accent form carries the composition while surrounding space remains disciplined, allowing the mark to read clearly at both intimate and exhibition scale.",
+  "narrative": "The work asks how a single mark can behave like a voice — clear, limited, and impossible to ignore.",
+  "story": {
+    "idea": "Build a graphic identity moment from one accent and an unbroken field of quiet.",
+    "inspiration": "Wayfinding marks, radio silence before a broadcast, and bronze against charcoal stone.",
+    "process": "The mark was redrawn until it could stand alone — no supporting ornaments, no secondary hierarchy.",
+    "processSteps": [
+      {
+        "id": "bs-1",
+        "title": "Mark exploration",
+        "description": "Sketched dozens of accent forms, keeping only those that read at both thumbnail and wall scale."
+      },
+      {
+        "id": "bs-2",
+        "title": "Field discipline",
+        "description": "Tested dark grounds until the bronze mark held without glow, shadow, or decorative framing."
+      },
+      {
+        "id": "bs-3",
+        "title": "Scale check",
+        "description": "Reviewed the composition at exhibition size to ensure the signal remained calm, not loud."
+      }
+    ],
+    "challenges": "Resisting the urge to add supporting geometry once the mark felt lonely on the page.",
+    "reflection": "Clarity often arrives when the design stops explaining itself."
+  },
   "creative": {
     "medium": "Graphic design",
     "category": "Graphic Design",
     "collectionSlug": "selected-work",
     "yearCreated": 2026,
-    "status": "published"
+    "status": "published",
+    "duration": "2 weeks",
+    "role": "Graphic design, mark making"
   },
   "media": {
     "cover": "/media/artwork/bronze-signal/cover.svg",
-    "gallery": ["/media/artwork/bronze-signal/cover.svg"],
+    "gallery": [
+      "/media/artwork/bronze-signal/study-mark.svg",
+      "/media/artwork/bronze-signal/study-field.svg"
+    ],
     "thumbnail": "/media/artwork/bronze-signal/cover.svg"
   },
   "technical": {
     "software": ["Adobe Illustrator"],
+    "dimensions": "1080 × 1080 px",
     "aspectRatio": "1 / 1",
     "colorPalette": ["#0c0a09", "#c4a574", "#f5f5f4"]
   },

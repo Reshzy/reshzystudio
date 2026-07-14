@@ -4,6 +4,7 @@ export {
 } from "./resolve-site-metadata";
 export {
   buildSiteStructuredData,
+  buildArtworkStructuredData,
   serializeJsonLd,
   type JsonLdGraph,
 } from "./structured-data";

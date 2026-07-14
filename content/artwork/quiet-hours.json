@@ -4,20 +4,51 @@
   "title": "Quiet Hours",
   "summary": "An editorial poster study in muted bronze and stone — built around a single horizon and restrained type.",
   "fullDescription": "Quiet Hours explores negative space as structure. The composition keeps the viewer at a measured distance, using a low horizon and sparse typography to create stillness rather than spectacle.",
+  "narrative": "The piece began as a question about how little a poster needs to hold attention — and how silence can become the subject.",
+  "story": {
+    "idea": "Reduce a poster to horizon, mark, and type — then stop before the composition becomes decorative.",
+    "inspiration": "Evening light on stone walls, museum wall labels, and the pause between gallery rooms.",
+    "process": "Studies moved from dense sketches to progressively emptier frames until the horizon carried the weight of the page.",
+    "processSteps": [
+      {
+        "id": "qh-1",
+        "title": "Field studies",
+        "description": "Collected quiet interiors and low horizons, noting where the eye rested without instruction."
+      },
+      {
+        "id": "qh-2",
+        "title": "Type restraint",
+        "description": "Tested title placements until the lettering supported the stillness instead of competing with it."
+      },
+      {
+        "id": "qh-3",
+        "title": "Final balance",
+        "description": "Removed secondary marks until only horizon, accent, and title remained."
+      }
+    ],
+    "challenges": "Knowing when emptiness was intentional rather than unfinished — every removed element had to earn its absence.",
+    "reflection": "Restraint is not a lack of ideas. It is a decision about which ideas the viewer should carry away."
+  },
   "creative": {
     "medium": "Digital poster",
     "category": "Poster Design",
     "collectionSlug": "selected-work",
     "yearCreated": 2025,
-    "status": "published"
+    "status": "published",
+    "duration": "3 weeks",
+    "role": "Art direction, illustration, typography"
   },
   "media": {
     "cover": "/media/artwork/quiet-hours/cover.svg",
-    "gallery": ["/media/artwork/quiet-hours/cover.svg"],
+    "gallery": [
+      "/media/artwork/quiet-hours/study-horizon.svg",
+      "/media/artwork/quiet-hours/study-type.svg"
+    ],
     "thumbnail": "/media/artwork/quiet-hours/cover.svg"
   },
   "technical": {
     "software": ["Adobe Illustrator", "Figma"],
+    "dimensions": "24 × 36 in",
     "aspectRatio": "4 / 5",
     "colorPalette": ["#fafaf9", "#8b7355", "#1c1917"]
   },

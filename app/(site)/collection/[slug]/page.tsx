@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArtworkTeaser } from "@/design-system/composites";
-import { Section, Text } from "@/design-system/primitives";
 import {
-  loadAllArtwork,
+  ArtworkCard,
+  ArtworkGrid,
+  ArtworkGridItem,
+  EmptyState,
+  SectionHeading,
+} from "@/design-system/composites";
+import { Reveal, Section } from "@/design-system/primitives";
+import {
   loadAllCollections,
+  loadArtworkById,
   loadCollectionBySlug,
   loadSiteConfiguration,
   toArtworkPreview,
 } from "@/lib/content";
 import { buildSiteMetadata } from "@/lib/metadata";
 
-interface CollectionPageProps {
+interface CollectionDetailPageProps {
   params: Promise<{ slug: string }>;
 }
 
@@ -23,7 +29,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: CollectionPageProps): Promise<Metadata> {
+}: CollectionDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const collection = loadCollectionBySlug(slug);
 
@@ -45,7 +51,7 @@ export async function generateMetadata({
 
 export default async function CollectionDetailPage({
   params,
-}: CollectionPageProps) {
+}: CollectionDetailPageProps) {
   const { slug } = await params;
   const collection = loadCollectionBySlug(slug);
 
@@ -53,30 +59,47 @@ export default async function CollectionDetailPage({
     notFound();
   }
 
-  const artworks = loadAllArtwork()
-    .filter((artwork) => collection.featuredArtworkIds.includes(artwork.id))
+  const artworks = collection.featuredArtworkIds
+    .map((id) => loadArtworkById(id))
+    .filter((artwork): artwork is NonNullable<typeof artwork> =>
+      Boolean(artwork),
+    )
     .map(toArtworkPreview);
 
   return (
-    <Section>
+    <Section aria-labelledby="collection-detail-heading">
       <div className="flex flex-col gap-12 md:gap-16">
-        <div className="flex max-w-xl flex-col gap-3">
-          <Text variant="metadata" as="p">
-            Collection
-          </Text>
-          <Text variant="heading" as="h1">
-            {collection.title}
-          </Text>
-          <Text variant="body" as="p" className="text-text-secondary">
-            {collection.description}
-          </Text>
-        </div>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Collection"
+            title={collection.title}
+            titleId="collection-detail-heading"
+            titleAs="h1"
+            supporting={collection.description}
+          />
+        </Reveal>
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {artworks.map((artwork) => (
-            <ArtworkTeaser key={artwork.id} artwork={artwork} />
-          ))}
-        </div>
+        {artworks.length === 0 ? (
+          <EmptyState
+            title="No work in this collection"
+            description="Pieces will appear here as they are curated into the sequence."
+            action={{ label: "Back to Collection", href: "/collection" }}
+          />
+        ) : (
+          <ArtworkGrid>
+            {artworks.map((artwork, index) => (
+              <ArtworkGridItem key={artwork.id}>
+                <Reveal delay={Math.min(index * 0.04, 0.24)}>
+                  <ArtworkCard
+                    artwork={artwork}
+                    variant="standard"
+                    priority={index < 2}
+                  />
+                </Reveal>
+              </ArtworkGridItem>
+            ))}
+          </ArtworkGrid>
+        )}
       </div>
     </Section>
   );

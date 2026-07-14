@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Quiet Hours type study">
+  <rect width="800" height="1000" fill="#fafaf9"/>
+  <text x="96" y="420" fill="#1c1917" font-family="Georgia, serif" font-size="54" letter-spacing="0.08em">QUIET</text>
+  <text x="96" y="490" fill="#1c1917" font-family="Georgia, serif" font-size="54" letter-spacing="0.08em">HOURS</text>
+  <line x1="96" y1="540" x2="280" y2="540" stroke="#8b7355" stroke-width="2"/>
+  <text x="96" y="900" fill="#78716c" font-family="system-ui, sans-serif" font-size="14" letter-spacing="0.2em">TYPE STUDY</text>
+</svg>

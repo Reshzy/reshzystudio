@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Bronze Signal mark study">
+  <rect width="800" height="800" fill="#141210"/>
+  <circle cx="400" cy="400" r="96" fill="none" stroke="#c4a574" stroke-width="8"/>
+  <circle cx="400" cy="400" r="18" fill="#c4a574"/>
+  <text x="64" y="736" fill="#a8a29e" font-family="system-ui, sans-serif" font-size="14" letter-spacing="0.2em">MARK STUDY</text>
+</svg>

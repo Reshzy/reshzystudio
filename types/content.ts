@@ -42,6 +42,9 @@ export interface ArtworkCreativeInfo {
   collectionSlug?: string;
   yearCreated: number;
   status: ContentStatus;
+  duration?: string;
+  role?: string;
+  client?: string;
 }
 
 export interface ArtworkTechnicalInfo {
@@ -51,10 +54,30 @@ export interface ArtworkTechnicalInfo {
   colorPalette?: string[];
 }
 
+export interface ArtworkProcessStep {
+  id: string;
+  title: string;
+  description: string;
+}
+
+/**
+ * Structured creative story for artwork detail pages.
+ * Maps to ARTWORK.md: Idea → Inspiration → Process → Challenges → Reflection.
+ */
+export interface ArtworkStory {
+  idea?: string;
+  inspiration?: string;
+  process?: string;
+  processSteps?: ArtworkProcessStep[];
+  challenges?: string;
+  reflection?: string;
+}
+
 export interface Artwork extends ContentIdentity {
   summary: string;
   fullDescription?: string;
   narrative?: string;
+  story?: ArtworkStory;
   creative: ArtworkCreativeInfo;
   media: ArtworkMedia;
   technical?: ArtworkTechnicalInfo;
@@ -62,6 +85,16 @@ export interface Artwork extends ContentIdentity {
   featured: boolean;
   relatedArtworkIds: string[];
   metadata: ContentMetadata;
+}
+
+export interface ArtworkPageContent {
+  overview: HomeSectionContent;
+  story: HomeSectionContent;
+  process: HomeSectionContent;
+  tools: HomeSectionContent;
+  gallery: HomeSectionContent;
+  related: HomeSectionContent;
+  cta: HomeSectionContent;
 }
 
 export interface Collection extends ContentIdentity {
@@ -168,6 +201,14 @@ export interface AboutPageContent {
   funFacts: HomeSectionContent;
   highlights: HomeSectionContent;
   cta: HomeSectionContent;
+}
+
+export interface CollectionPageContent {
+  hero: HomeSectionContent;
+  featured: HomeSectionContent;
+  categories: HomeSectionContent;
+  archive: HomeSectionContent;
+  technologies: HomeSectionContent;
 }
 
 export interface NavigationItem {

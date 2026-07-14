@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "headline": "Selected Work",
+    "supporting": "A curated exhibition of digital illustration, graphic design, and poster studies."
+  },
+  "featured": {
+    "headline": "Featured",
+    "supporting": "Pieces that define the current exhibition."
+  },
+  "categories": {
+    "headline": "Categories",
+    "supporting": "Browse by discipline — only the practices with work on view."
+  },
+  "archive": {
+    "headline": "Archive",
+    "supporting": "Every piece currently on view, paced for careful looking."
+  },
+  "technologies": {
+    "headline": "Tools",
+    "supporting": "Software used across the exhibition."
+  }
+}

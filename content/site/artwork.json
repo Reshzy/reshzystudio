@@ -1,0 +1,34 @@
+{
+  "overview": {
+    "headline": "Overview",
+    "supporting": "What the work is asking the viewer to notice."
+  },
+  "story": {
+    "headline": "Creative Story",
+    "supporting": "Idea, inspiration, and the thinking behind the piece."
+  },
+  "process": {
+    "headline": "Process",
+    "supporting": "How the composition was shaped, step by step."
+  },
+  "tools": {
+    "headline": "Tools",
+    "supporting": "Software and materials used to make the work."
+  },
+  "gallery": {
+    "headline": "Gallery",
+    "supporting": "Supporting studies, variants, and close looking."
+  },
+  "related": {
+    "headline": "Related Work",
+    "supporting": "Nearby pieces that share theme, tone, or craft."
+  },
+  "cta": {
+    "headline": "Start a conversation",
+    "body": "For commissions, collaboration, or a quiet note about the work — write when you are ready.",
+    "cta": {
+      "label": "Start a Conversation",
+      "href": "/contact"
+    }
+  }
+}

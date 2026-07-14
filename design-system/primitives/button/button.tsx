@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, Ref } from "react";
 import { cn } from "@/design-system/shared";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
@@ -14,6 +14,7 @@ const variantStyles: Record<ButtonVariant, string> = {
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
+  ref?: Ref<HTMLButtonElement>;
 }
 
 export function Button({
@@ -21,10 +22,12 @@ export function Button({
   type = "button",
   className,
   children,
+  ref,
   ...props
 }: ButtonProps) {
   return (
     <button
+      ref={ref}
       type={type}
       className={cn(
         "inline-flex items-center justify-center rounded-full px-6 py-3 text-body font-medium",
