@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { CloseIcon, MenuIcon } from "@/design-system/icons";
 import { Text } from "@/design-system/primitives";
@@ -17,6 +18,10 @@ import {
 import type { NavigationItem } from "@/types/content";
 import { NavLink } from "./nav-link";
 
+const subscribeNoop = () => () => {};
+const clientSnapshot = () => true;
+const serverSnapshot = () => false;
+
 export interface MobileNavProps {
   items: NavigationItem[];
   className?: string;
@@ -24,6 +29,11 @@ export interface MobileNavProps {
 
 export function MobileNav({ items, className }: MobileNavProps) {
   const [open, setOpen] = useState(false);
+  const mounted = useSyncExternalStore(
+    subscribeNoop,
+    clientSnapshot,
+    serverSnapshot,
+  );
   const panelId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -79,77 +89,84 @@ export function MobileNav({ items, className }: MobileNavProps) {
         {open ? <CloseIcon className="size-5" /> : <MenuIcon className="size-5" />}
       </button>
 
-      <AnimatePresence>
-        {open ? (
-          <motion.div
-            ref={panelRef}
-            id={panelId}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Site navigation"
-            className="fixed inset-0 z-40 flex flex-col bg-canvas"
-            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={
-              shouldReduceMotion
-                ? microTransition
-                : { duration: duration.medium, ease: ease.enter }
-            }
-          >
-            <div className="flex items-center justify-between px-4 py-4">
-              <Text variant="metadata" as="p">
-                Navigation
-              </Text>
-              <button
-                ref={closeButtonRef}
-                type="button"
-                className={cn(
-                  "inline-flex size-10 items-center justify-center rounded-full",
-                  "text-text-primary hover:bg-surface-secondary",
-                  interactiveControl,
-                  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
-                )}
-                aria-label="Close navigation"
-                onClick={() => setOpen(false)}
-              >
-                <CloseIcon className="size-5" />
-              </button>
-            </div>
-
-            <nav
-              aria-label="Primary"
-              className="flex flex-1 flex-col justify-center gap-8 px-8"
-            >
-              {sortedItems.map((item, index) => (
+      {mounted
+        ? createPortal(
+            <AnimatePresence>
+              {open ? (
                 <motion.div
-                  key={item.href}
-                  initial={
-                    shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }
-                  }
-                  animate={{ opacity: 1, y: 0 }}
+                  ref={panelRef}
+                  id={panelId}
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label="Site navigation"
+                  className="fixed inset-0 z-50 flex flex-col bg-canvas"
+                  initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={
                     shouldReduceMotion
                       ? microTransition
-                      : {
-                          ...smallTransition,
-                          delay: staggerDelay(index, "tight"),
-                        }
+                      : { duration: duration.medium, ease: ease.enter }
                   }
                 >
-                  <NavLink
-                    href={item.href}
-                    onNavigate={() => setOpen(false)}
-                    className="font-display text-heading after:hidden"
+                  <div className="flex items-center justify-between px-4 py-4">
+                    <Text variant="metadata" as="p">
+                      Navigation
+                    </Text>
+                    <button
+                      ref={closeButtonRef}
+                      type="button"
+                      className={cn(
+                        "inline-flex size-10 items-center justify-center rounded-full",
+                        "text-text-primary hover:bg-surface-secondary",
+                        interactiveControl,
+                        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
+                      )}
+                      aria-label="Close navigation"
+                      onClick={() => setOpen(false)}
+                    >
+                      <CloseIcon className="size-5" />
+                    </button>
+                  </div>
+
+                  <nav
+                    aria-label="Primary"
+                    className="flex flex-1 flex-col justify-center gap-8 px-8"
                   >
-                    {item.label}
-                  </NavLink>
+                    {sortedItems.map((item, index) => (
+                      <motion.div
+                        key={item.href}
+                        initial={
+                          shouldReduceMotion
+                            ? { opacity: 0 }
+                            : { opacity: 0, y: 12 }
+                        }
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={
+                          shouldReduceMotion
+                            ? microTransition
+                            : {
+                                ...smallTransition,
+                                delay: staggerDelay(index, "tight"),
+                              }
+                        }
+                      >
+                        <NavLink
+                          href={item.href}
+                          onNavigate={() => setOpen(false)}
+                          className="font-display text-heading after:hidden"
+                        >
+                          {item.label}
+                        </NavLink>
+                      </motion.div>
+                    ))}
+                  </nav>
                 </motion.div>
-              ))}
-            </nav>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+              ) : null}
+            </AnimatePresence>,
+            document.body,
+          )
+        : null}
     </div>
   );
 }
